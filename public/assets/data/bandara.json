@@ -1,0 +1,1220 @@
+[
+    {
+        "iata": "TQQ",
+        "name": "Maranggo Airport",
+        "city": "Waha-Tomea Island",
+        "lat": -5.7645702362,
+        "lon": 123.9169998169
+    },
+    {
+        "iata": "UPG",
+        "name": "Hasanuddin International Airport",
+        "city": "Ujung Pandang-Celebes Island",
+        "lat": -5.0616297722,
+        "lon": 119.5540008545
+    },
+    {
+        "iata": "BIK",
+        "name": "Frans Kaisiepo Airport",
+        "city": "Biak-Supiori Island",
+        "lat": -1.1900199652,
+        "lon": 136.108001709
+    },
+    {
+        "iata": "ONI",
+        "name": "Moanamani Airport",
+        "city": "Moanamani-Papua Island",
+        "lat": -3.9834020138,
+        "lon": 136.0832977295
+    },
+    {
+        "iata": "FOO",
+        "name": "Kornasoren Airfield",
+        "city": "Kornasoren-Numfoor Island",
+        "lat": -0.9363250136,
+        "lon": 134.871994019
+    },
+    {
+        "iata": "WET",
+        "name": "Wagethe Airport",
+        "city": "Wagethe-Papua Island",
+        "lat": -4.0442299843,
+        "lon": 136.2779998779
+    },
+    {
+        "iata": "NBX",
+        "name": "Nabire Airport",
+        "city": "Nabire-Papua Island",
+        "lat": -3.3681800365,
+        "lon": 135.4960021973
+    },
+    {
+        "iata": "ILA",
+        "name": "Illaga Airport",
+        "city": "Illaga-Papua Island",
+        "lat": -3.8332800865,
+        "lon": 137.5829925537
+    },
+    {
+        "iata": "KOX",
+        "name": "Kokonau Airport",
+        "city": "Kokonau-Papua Island",
+        "lat": -4.7166671753,
+        "lon": 136.4333343506
+    },
+    {
+        "iata": "ZRI",
+        "name": "Serui Airport",
+        "city": "Serui-Japen Island",
+        "lat": -1.8755799532,
+        "lon": 136.2409973145
+    },
+    {
+        "iata": "TIM",
+        "name": "Moses Kilangin Airport",
+        "city": "Timika-Papua Island",
+        "lat": -4.5282797813,
+        "lon": 136.8869934082
+    },
+    {
+        "iata": "EWI",
+        "name": "Enarotali Airport",
+        "city": "Enarotali-Papua Island",
+        "lat": -3.9258999825,
+        "lon": 136.3769989014
+    },
+    {
+        "iata": "AMI",
+        "name": "Selaparang Airport",
+        "city": "Mataram-Lombok Island",
+        "lat": -8.5607099533,
+        "lon": 116.095001221
+    },
+    {
+        "iata": "BMU",
+        "name": "Muhammad Salahuddin Airport",
+        "city": "Bima-Sumbawa Island",
+        "lat": -8.5396499634,
+        "lon": 118.68699646
+    },
+    {
+        "iata": "DPS",
+        "name": "Ngurah Rai (Bali) International Airport",
+        "city": "Denpasar-Bali Island",
+        "lat": -8.748169899,
+        "lon": 115.1669998169
+    },
+    {
+        "iata": "LOP",
+        "name": "Bandara International Lombok Airport",
+        "city": "Mataram",
+        "lat": -8.757322,
+        "lon": 116.276675
+    },
+    {
+        "iata": "SWQ",
+        "name": "Sumbawa Besar Airport",
+        "city": "Sumbawa Island",
+        "lat": -8.4890403748,
+        "lon": 117.4120025635
+    },
+    {
+        "iata": "TMC",
+        "name": "Tambolaka Airport",
+        "city": "Waikabubak-Sumba Island",
+        "lat": -9.4097204208,
+        "lon": 119.2440032959
+    },
+    {
+        "iata": "WGP",
+        "name": "Waingapu Airport",
+        "city": "Waingapu-Sumba Island",
+        "lat": -9.6692199707,
+        "lon": 120.302001953
+    },
+    {
+        "iata": "YIA",
+        "name": "Yogyakarta International Airport",
+        "city": "Yogyakarta",
+        "lat": -7.907459,
+        "lon": 110.05448
+    },
+    {
+        "iata": "ARJ",
+        "name": "Arso Airport",
+        "city": "Arso-Papua Island",
+        "lat": -2.9333329201,
+        "lon": 140.7833404541
+    },
+    {
+        "iata": "BUI",
+        "name": "Bokondini Airport",
+        "city": "Bokondini-Papua Island",
+        "lat": -3.5836451054,
+        "lon": 138.5334472656
+    },
+    {
+        "iata": "ZRM",
+        "name": "Sarmi Airport",
+        "city": "Sarmi-Papua Island",
+        "lat": -1.8695499897,
+        "lon": 138.75
+    },
+    {
+        "iata": "DJJ",
+        "name": "Sentani International Airport",
+        "city": "Jayapura-Papua Island",
+        "lat": -2.5769500732,
+        "lon": 140.5160064697
+    },
+    {
+        "iata": "LHI",
+        "name": "Lereh Airport",
+        "city": "Lereh-Papua Island",
+        "lat": -3.1278998852,
+        "lon": 139.9429931641
+    },
+    {
+        "iata": "LII",
+        "name": "Mulia Airport",
+        "city": "Mulia-Papua Island",
+        "lat": -3.7094700336,
+        "lon": 137.9759979248
+    },
+    {
+        "iata": "OKL",
+        "name": "Oksibil Airport",
+        "city": "Oksibil-Papua Island",
+        "lat": -5.0910601616,
+        "lon": 140.6100006104
+    },
+    {
+        "iata": "WAR",
+        "name": "Waris Airport",
+        "city": "Waris-Papua Island",
+        "lat": -3.2224299908,
+        "lon": 140.9790039063
+    },
+    {
+        "iata": "SEH",
+        "name": "Senggeh Airport",
+        "city": "Senggeh-Papua Island",
+        "lat": -3.4333300591,
+        "lon": 140.8170013428
+    },
+    {
+        "iata": "UBR",
+        "name": "Ubrub Airport",
+        "city": "Ubrub-Papua Island",
+        "lat": -3.666670084,
+        "lon": 140.8500061035
+    },
+    {
+        "iata": "WMX",
+        "name": "Wamena Airport",
+        "city": "Wamena-Papua Island",
+        "lat": -4.1025099754,
+        "lon": 138.9570007324
+    },
+    {
+        "iata": "MDP",
+        "name": "Mindiptana Airport",
+        "city": "Mindiptana-Papua Island",
+        "lat": -5.75,
+        "lon": 140.3670043945
+    },
+    {
+        "iata": "BXD",
+        "name": "Bade Airport",
+        "city": "Bade-Papua Island",
+        "lat": -7.714630127,
+        "lon": 139.5749969482
+    },
+    {
+        "iata": "MKQ",
+        "name": "Mopah Airport",
+        "city": "Merauke-Papua Island",
+        "lat": -8.5202903748,
+        "lon": 140.4179992676
+    },
+    {
+        "iata": "OKQ",
+        "name": "Okaba Airport",
+        "city": "Okaba-Papua Island",
+        "lat": -8.0882196426,
+        "lon": 139.7189941406
+    },
+    {
+        "iata": "KEI",
+        "name": "Kepi Airport",
+        "city": "Kepi-Papua Island",
+        "lat": -6.5943698883,
+        "lon": 139.3569946289
+    },
+    {
+        "iata": "TMH",
+        "name": "Tanah Merah Airport",
+        "city": "Tanah Merah-Papua Island",
+        "lat": -6.099219799,
+        "lon": 140.2980041504
+    },
+    {
+        "iata": "TJS",
+        "name": "Tanjung Harapan Airport",
+        "city": "Tanjung Selor-Borneo Island",
+        "lat": 2.8364100456,
+        "lon": 117.3740005493
+    },
+    {
+        "iata": "DTD",
+        "name": "Datadawai Airport",
+        "city": "Datadawai-Borneo Island",
+        "lat": 0.626,
+        "lon": 116.6006
+    },
+    {
+        "iata": "BEJ",
+        "name": "Barau(Kalimaru) Airport",
+        "city": "Tanjung Redep-Borneo Island",
+        "lat": 2.1554999352,
+        "lon": 117.431999207
+    },
+    {
+        "iata": "BPN",
+        "name": "Sepinggan International Airport",
+        "city": "Balikpapan-Borneo Island",
+        "lat": -1.2682700157,
+        "lon": 116.8939971924
+    },
+    {
+        "iata": "TRK",
+        "name": "Juwata Airport",
+        "city": "Tarakan Island",
+        "lat": 3.3266899586,
+        "lon": 117.5660018921
+    },
+    {
+        "iata": "AAP",
+        "name": "Aji Pangeran Tumenggung Pranoto International Airport",
+        "city": "Samarinda",
+        "lat": -0.373611,
+        "lon": 117.255556
+    },
+    {
+        "iata": "TSX",
+        "name": "Tanjung Santan Airport",
+        "city": "Santan-Borneo Island",
+        "lat": -0.0929730013,
+        "lon": 117.4530029297
+    },
+    {
+        "iata": "BYQ",
+        "name": "Bunyu Airport",
+        "city": "Bunju Island",
+        "lat": 3.4557199478,
+        "lon": 117.866996765
+    },
+    {
+        "iata": "GLX",
+        "name": "Gamarmalamo Airport",
+        "city": "Galela-Celebes Island",
+        "lat": 1.8383300304,
+        "lon": 127.7860031128
+    },
+    {
+        "iata": "GTO",
+        "name": "Jalaluddin Airport",
+        "city": "Gorontalo-Celebes Island",
+        "lat": 0.6371189952,
+        "lon": 122.8499984741
+    },
+    {
+        "iata": "NAH",
+        "name": "Naha Airport",
+        "city": "Tahuna-Sangihe Island",
+        "lat": 3.6832098961,
+        "lon": 125.5279998779
+    },
+    {
+        "iata": "TLI",
+        "name": "Toli Toli Airport",
+        "city": "Toli Toli-Celebes Island",
+        "lat": -1.0297700167,
+        "lon": 120.8170013428
+    },
+    {
+        "iata": "GEB",
+        "name": "Gebe Airport",
+        "city": "Gebe Island",
+        "lat": -0.0788889974,
+        "lon": 129.4579925537
+    },
+    {
+        "iata": "KAZ",
+        "name": "Kao Airport",
+        "city": "Kao-Celebes Island",
+        "lat": 1.1852799654,
+        "lon": 127.8960037231
+    },
+    {
+        "iata": "PLW",
+        "name": "Mutiara Airport",
+        "city": "Palu-Celebes Island",
+        "lat": -0.9185420275,
+        "lon": 119.9100036621
+    },
+    {
+        "iata": "MDC",
+        "name": "Sam Ratulangi Airport",
+        "city": "Manado-Celebes Island",
+        "lat": 1.5492600203,
+        "lon": 124.9260025024
+    },
+    {
+        "iata": "MNA",
+        "name": "Melangguane Airport",
+        "city": "Karakelong Island",
+        "lat": 4.006939888,
+        "lon": 126.672996521
+    },
+    {
+        "iata": "PSJ",
+        "name": "Kasiguncu Airport",
+        "city": "Poso-Celebes Island",
+        "lat": -1.4167499542,
+        "lon": 120.657997131
+    },
+    {
+        "iata": "OTI",
+        "name": "Pitu Airport",
+        "city": "Gotalalamo-Morotai Island",
+        "lat": 2.0459899902,
+        "lon": 128.324996948
+    },
+    {
+        "iata": "TTE",
+        "name": "Sultan Khairun Babullah Airport",
+        "city": "Sango-Ternate Island",
+        "lat": 0.8314139843,
+        "lon": 127.3809967041
+    },
+    {
+        "iata": "LUW",
+        "name": "Bubung Airport",
+        "city": "Luwok-Celebes Island",
+        "lat": -1.0389200449,
+        "lon": 122.7720031738
+    },
+    {
+        "iata": "UOL",
+        "name": "Buol Airport",
+        "city": "Buol-Celebes Island",
+        "lat": 1.1590499878,
+        "lon": 121.4280014038
+    },
+    {
+        "iata": "BTW",
+        "name": "Batu Licin Airport",
+        "city": "Batu Licin-Borneo Island",
+        "lat": -3.4124100208,
+        "lon": 115.995002747
+    },
+    {
+        "iata": "PKN",
+        "name": "Iskandar Airport",
+        "city": "Pangkalanbun-Borneo Island",
+        "lat": -2.7051999569,
+        "lon": 111.672996521
+    },
+    {
+        "iata": "KBU",
+        "name": "Stagen Airport",
+        "city": "Laut Island",
+        "lat": -3.2947199345,
+        "lon": 116.1650009155
+    },
+    {
+        "iata": "TJG",
+        "name": "Warukin Airport",
+        "city": "Tanta-Tabalong-Borneo Island",
+        "lat": -2.2165598869,
+        "lon": 115.435997009
+    },
+    {
+        "iata": "BDJ",
+        "name": "Syamsudin Noor Airport",
+        "city": "Banjarmasin-Borneo Island",
+        "lat": -3.4423599243,
+        "lon": 114.7630004883
+    },
+    {
+        "iata": "PKY",
+        "name": "Tjilik Riwut Airport",
+        "city": "Palangkaraya-Kalimantan Tengah",
+        "lat": -2.2251300812,
+        "lon": 113.9430007935
+    },
+    {
+        "iata": "SMQ",
+        "name": "Sampit(Hasan) Airport",
+        "city": "Sampit-Borneo Island",
+        "lat": -2.4991900921,
+        "lon": 112.9749984741
+    },
+    {
+        "iata": "AHI",
+        "name": "Amahai Airport",
+        "city": "Amahai-Seram Island",
+        "lat": -3.3480000496,
+        "lon": 128.925994873
+    },
+    {
+        "iata": "NDA",
+        "name": "Banda Airport Kepulauan",
+        "city": "Banda Island",
+        "lat": 5.1166701317,
+        "lon": 97.1166992188
+    },
+    {
+        "iata": "DOB",
+        "name": "Dobo Airport",
+        "city": "Dobo-Kobror Island",
+        "lat": -5.7722201347,
+        "lon": 134.2120056152
+    },
+    {
+        "iata": "MAL",
+        "name": "Mangole Airport Falabisahaya",
+        "city": "Mangole Island",
+        "lat": -1.87579,
+        "lon": 125.8300018311
+    },
+    {
+        "iata": "NRE",
+        "name": "Namrole Airport",
+        "city": "Namrole-Buru Island",
+        "lat": -3.8208100796,
+        "lon": 126.7180023193
+    },
+    {
+        "iata": "LAH",
+        "name": "Oesman Sadik Airport Labuha",
+        "city": "Labuha-Halmahera Island",
+        "lat": -0.6352589726,
+        "lon": 127.5019989014
+    },
+    {
+        "iata": "SXK",
+        "name": "Saumlaki Airport",
+        "city": "Saumlaki-Yamdena Island",
+        "lat": -7.9886097908,
+        "lon": 131.3059997559
+    },
+    {
+        "iata": "BJK",
+        "name": "Nangasuri Airport",
+        "city": "Maikoor Island",
+        "lat": -6.0661997795,
+        "lon": 134.2740020752
+    },
+    {
+        "iata": "LUV",
+        "name": "Dumatumbun Airport",
+        "city": "Langgur-Seram Island",
+        "lat": -5.6616201401,
+        "lon": 132.7310028076
+    },
+    {
+        "iata": "SQN",
+        "name": "Emalamo Sanana Airport",
+        "city": "Sanana-Seram Island",
+        "lat": -2.080509901,
+        "lon": 125.9670028687
+    },
+    {
+        "iata": "AMQ",
+        "name": "Pattimura Airport Ambon",
+        "city": "Ambon",
+        "lat": -3.7102599144,
+        "lon": 128.0890045166
+    },
+    {
+        "iata": "NAM",
+        "name": "Namlea Airport",
+        "city": "Namlea-Buru Island",
+        "lat": -3.2355699539,
+        "lon": 127.0999984741
+    },
+    {
+        "iata": "TAX",
+        "name": "Taliabu Island Airport",
+        "city": "Tikong-Taliabu Island",
+        "lat": -1.642629981,
+        "lon": 124.5589981079
+    },
+    {
+        "iata": "WBA",
+        "name": "WahaiSeram Island",
+        "city": "Seram Island",
+        "lat": -2.8141698837,
+        "lon": 129.4819946289
+    },
+    {
+        "iata": "RTU",
+        "name": "Maratua Airport",
+        "city": "Maratua Island",
+        "lat": 2.1975,
+        "lon": 118.599167
+    },
+    {
+        "iata": "MLG",
+        "name": "Abdul Rachman Saleh Airport",
+        "city": "Malang-Java Island",
+        "lat": -7.9265599251,
+        "lon": 112.714996338
+    },
+    {
+        "iata": "CPF",
+        "name": "Cepu Airport",
+        "city": "Tjepu-Java Island",
+        "lat": -7.1948416667,
+        "lon": 111.548166667
+    },
+    {
+        "iata": "JOG",
+        "name": "Adi Sutjipto International Airport",
+        "city": "Yogyakarta-Java Island",
+        "lat": -7.7881798744,
+        "lon": 110.4319992065
+    },
+    {
+        "iata": "SOC",
+        "name": "Adi Sumarmo Wiryokusumo Airport",
+        "city": "Sukarata(Solo)-Java Island",
+        "lat": -7.5160899162,
+        "lon": 110.7570037842
+    },
+    {
+        "iata": "SUB",
+        "name": "Juanda International Airport",
+        "city": "Surabaya",
+        "lat": -7.3798298836,
+        "lon": 112.7870025635
+    },
+    {
+        "iata": "SRG",
+        "name": "Achmad Yani Airport",
+        "city": "Semarang-Java Island",
+        "lat": -6.9727301598,
+        "lon": 110.375
+    },
+    {
+        "iata": "SUP",
+        "name": "Trunojoyo Airport",
+        "city": "Sumenep-Madura Island",
+        "lat": -7.02425,
+        "lon": 113.890205556
+    },
+    {
+        "iata": "NTI",
+        "name": "Stenkol Airport",
+        "city": "Bintuni-Papua Island",
+        "lat": -2.1041600704,
+        "lon": 133.5220031738
+    },
+    {
+        "iata": "RSK",
+        "name": "Abresso Airport",
+        "city": "Ransiki-Papua Island",
+        "lat": -1.5084500313,
+        "lon": 134.18699646
+    },
+    {
+        "iata": "KEQ",
+        "name": "Kebar Airport",
+        "city": "Kebar-Papua Island",
+        "lat": -0.6371009946,
+        "lon": 133.1280059814
+    },
+    {
+        "iata": "FKQ",
+        "name": "Fakfak Airport",
+        "city": "Fakfak-Papua Island",
+        "lat": -2.9201900959,
+        "lon": 132.266998291
+    },
+    {
+        "iata": "INX",
+        "name": "Inanwatan Airport",
+        "city": "Inanwatan Airport-Papua Island",
+        "lat": -2.1280999184,
+        "lon": 132.1609954834
+    },
+    {
+        "iata": "KNG",
+        "name": "Kaimana Airport",
+        "city": "Kaimana-Papua Island",
+        "lat": -3.6445200443,
+        "lon": 133.6959991455
+    },
+    {
+        "iata": "RDE",
+        "name": "Merdei Airport",
+        "city": "Merdei-Papua Island",
+        "lat": -1.5833300352,
+        "lon": 133.3329925537
+    },
+    {
+        "iata": "BXB",
+        "name": "Babo Airport",
+        "city": "Babo-Papua Island",
+        "lat": -2.5322399139,
+        "lon": 133.4389953613
+    },
+    {
+        "iata": "MKW",
+        "name": "Rendani Airport",
+        "city": "Manokwari-Papua Island",
+        "lat": -0.8918330073,
+        "lon": 134.0489959717
+    },
+    {
+        "iata": "SOQ",
+        "name": "Sorong (Jefman) Airport",
+        "city": "Sorong-Papua Island",
+        "lat": -0.9263579845,
+        "lon": 131.1210021973
+    },
+    {
+        "iata": "TXM",
+        "name": "Teminabuan Airport",
+        "city": "Atinjoe-Papua Island",
+        "lat": -1.4447200298,
+        "lon": 132.0209960938
+    },
+    {
+        "iata": "WSR",
+        "name": "Wasior Airport",
+        "city": "Wasior-Papua Island",
+        "lat": -2.7335898876,
+        "lon": 134.5180053711
+    },
+    {
+        "iata": "BJW",
+        "name": "Bajawa Soa Airport",
+        "city": "Bajawa",
+        "lat": -8.7074349801,
+        "lon": 121.057426929
+    },
+    {
+        "iata": "MOF",
+        "name": "Maumere(Wai Oti) Airport",
+        "city": "Maumere-Flores Island",
+        "lat": -8.6406497955,
+        "lon": 122.236999512
+    },
+    {
+        "iata": "ENE",
+        "name": "Ende (H Hasan Aroeboesman) Airport",
+        "city": "Ende-Flores Island",
+        "lat": -8.8492898941,
+        "lon": 121.661003113
+    },
+    {
+        "iata": "RTG",
+        "name": "Satar Tacik Airport",
+        "city": "Satar Tacik-Flores Island",
+        "lat": -8.5970096588,
+        "lon": 120.4769973755
+    },
+    {
+        "iata": "ARD",
+        "name": "Mali Airport",
+        "city": "Alor Island",
+        "lat": -8.1323404312,
+        "lon": 124.5970001221
+    },
+    {
+        "iata": "LBJ",
+        "name": "Komodo (Mutiara II) Airport",
+        "city": "Labuan Bajo-Flores Island",
+        "lat": -8.4866600037,
+        "lon": 119.888999939
+    },
+    {
+        "iata": "KOE",
+        "name": "El Tari Airport",
+        "city": "Kupang-Timor Island",
+        "lat": -10.1716003418,
+        "lon": 123.6709976196
+    },
+    {
+        "iata": "BUW",
+        "name": "Betoambari Airport",
+        "city": "Bau Bau-Butung Island",
+        "lat": -5.4868798256,
+        "lon": 122.5690002441
+    },
+    {
+        "iata": "MJU",
+        "name": "Tampa Padang Airport",
+        "city": "Mamuju-Celebes Island",
+        "lat": -2.583333,
+        "lon": 119.033333
+    },
+    {
+        "iata": "MXB",
+        "name": "Andi Jemma Airport",
+        "city": "Masamba-Celebes Island",
+        "lat": -2.5580399036,
+        "lon": 120.3239974976
+    },
+    {
+        "iata": "KXB",
+        "name": "Sangia Nibandera Airport",
+        "city": "Kolaka",
+        "lat": -4.341217,
+        "lon": 121.523983
+    },
+    {
+        "iata": "SQR",
+        "name": "Soroako Airport",
+        "city": "Soroako-Celebes Island",
+        "lat": -2.5311999321,
+        "lon": 121.358001709
+    },
+    {
+        "iata": "TTR",
+        "name": "Pongtiku Airport",
+        "city": "Tanah Toraja-Celebes Island",
+        "lat": -3.0447399616,
+        "lon": 119.8219985962
+    },
+    {
+        "iata": "KDI",
+        "name": "Wolter Monginsidi Airport",
+        "city": "Kendari-Celebes Island",
+        "lat": -4.0816102028,
+        "lon": 122.4179992676
+    },
+    {
+        "iata": "AKQ",
+        "name": "Menggala Airport",
+        "city": "Menggala-Sumatra Island",
+        "lat": -4.4894399643,
+        "lon": 105.2170028687
+    },
+    {
+        "iata": "PKU",
+        "name": "Sultan Syarif Kasim Ii (Simpang Tiga) Airport",
+        "city": "Pekanbaru-Sumatra Island",
+        "lat": 0.4607860148,
+        "lon": 101.4449996948
+    },
+    {
+        "iata": "DUM",
+        "name": "Pinang Kampai Airport",
+        "city": "Dumai-Sumatra Island",
+        "lat": 1.6091899872,
+        "lon": 101.4339981079
+    },
+    {
+        "iata": "RKO",
+        "name": "Rokot Airport",
+        "city": "Sipora Island",
+        "lat": -2.0991199017,
+        "lon": 99.7006988525
+    },
+    {
+        "iata": "SEQ",
+        "name": "Sungai Pakning Bengkalis Airport",
+        "city": "Bengkalis-Sumatra Island",
+        "lat": 1.3700000048,
+        "lon": 102.1399993896
+    },
+    {
+        "iata": "TJB",
+        "name": "Tanjung Balai Airport",
+        "city": "Karinmunbesar Island",
+        "lat": 1.0499999523,
+        "lon": 103.3830032349
+    },
+    {
+        "iata": "KJT",
+        "name": "Majalengka Kertajati International Airport",
+        "city": "Kertajati",
+        "lat": -6.647686335455713,
+        "lon": 108.16580263864314
+    },
+    {
+        "iata": "BDO",
+        "name": "Husein Sastranegara International Airport",
+        "city": "Bandung-Java Island",
+        "lat": -6.9006299973,
+        "lon": 107.5759963989
+    },
+    {
+        "iata": "CBN",
+        "name": "Penggung Airport",
+        "city": "Cirebon-Java Island",
+        "lat": -6.7561402321,
+        "lon": 108.540000916
+    },
+    {
+        "iata": "TSY",
+        "name": "Cibeureum Airport",
+        "city": "Tasikmalaya-Java Island",
+        "lat": -7.3466000557,
+        "lon": 108.246002197
+    },
+    {
+        "iata": "TKG",
+        "name": "Radin Inten II (Branti) Airport",
+        "city": "Bandar Lampung-Sumatra Island",
+        "lat": -5.240556,
+        "lon": 105.175556
+    },
+    {
+        "iata": "BTH",
+        "name": "Hang Nadim Airport",
+        "city": "Batam Island",
+        "lat": 1.121029973,
+        "lon": 104.1190032959
+    },
+    {
+        "iata": "PPR",
+        "name": "Pasir Pangaraan Airport",
+        "city": "Pasir Pengarayan-Sumatra Island",
+        "lat": 0.8454310298,
+        "lon": 100.3700027466
+    },
+    {
+        "iata": "TNJ",
+        "name": "Kijang Airport",
+        "city": "Tanjung Pinang-Bintan Island",
+        "lat": 0.9226830006,
+        "lon": 104.531997681
+    },
+    {
+        "iata": "SIQ",
+        "name": "Dabo Airport",
+        "city": "Pasirkuning-Singkep Island",
+        "lat": -0.4791890085,
+        "lon": 104.5790023804
+    },
+    {
+        "iata": "PDG",
+        "name": "Minangkabau Airport",
+        "city": "Ketaping\/Padang-Sumatra Island",
+        "lat": -0.7869169712,
+        "lon": 100.28099823
+    },
+    {
+        "iata": "HLP",
+        "name": "Halim Perdanakusuma International Airport",
+        "city": "Jakarta",
+        "lat": -6.2666101456,
+        "lon": 106.8909988403
+    },
+    {
+        "iata": "CXP",
+        "name": "Tunggul Wulung Airport",
+        "city": "Cilacap-Java Island",
+        "lat": -7.6450600624,
+        "lon": 109.033996582
+    },
+    {
+        "iata": "PCB",
+        "name": "Pondok Cabe Air Base",
+        "city": "Jakarta",
+        "lat": -6.3369598389,
+        "lon": 106.7649993896
+    },
+    {
+        "iata": "PPJ",
+        "name": "Pulau Panjang Airport",
+        "city": "Tjipara-Java Island",
+        "lat": -5.644444,
+        "lon": 106.5625
+    },
+    {
+        "iata": "CGK",
+        "name": "Soekarno-Hatta International Airport",
+        "city": "Jakarta",
+        "lat": -6.1255698204,
+        "lon": 106.65599823
+    },
+    {
+        "iata": "KRC",
+        "name": "Depati Parbo Airport",
+        "city": "Sungai Penuh",
+        "lat": -2.091111,
+        "lon": 101.462778
+    },
+    {
+        "iata": "GNS",
+        "name": "Binaka Airport",
+        "city": "Gunung Sitoli-Nias Island",
+        "lat": 1.1663800478,
+        "lon": 97.7046966553
+    },
+    {
+        "iata": "AEG",
+        "name": "Aek Godang Airport",
+        "city": "Padang Sidempuan",
+        "lat": 1.400103,
+        "lon": 99.430453
+    },
+    {
+        "iata": "MES",
+        "name": "Soewondo Air Force Base",
+        "city": "Medan",
+        "lat": 3.559167,
+        "lon": 98.671111
+    },
+    {
+        "iata": "KNO",
+        "name": "Polonia International Airport",
+        "city": "Medan-Sumatra Island",
+        "lat": 3.637847,
+        "lon": 98.870566
+    },
+    {
+        "iata": "DTB",
+        "name": "Sisingamangaraja XII International Airport",
+        "city": "Siborong-Borong",
+        "lat": 2.259722,
+        "lon": 98.995278
+    },
+    {
+        "iata": "SIW",
+        "name": "Parapat Airport",
+        "city": "Parapat-Sumatra Island",
+        "lat": 2.6666669846,
+        "lon": 98.9333343506
+    },
+    {
+        "iata": "FLZ",
+        "name": "Dr Ferdinand Lumban Tobing Airport",
+        "city": "Sibolga-Sumatra Island",
+        "lat": 1.555940032,
+        "lon": 98.8889007568
+    },
+    {
+        "iata": "TJQ",
+        "name": "Buluh Tumbang (H A S Hanandjoeddin) Airport",
+        "city": "Tanjung Pandan-Belitung Island",
+        "lat": -2.7457199097,
+        "lon": 107.754997253
+    },
+    {
+        "iata": "NPO",
+        "name": "Nanga Pinoh I Airport",
+        "city": "Nanga Pinoh-Borneo Island",
+        "lat": -0.3488689959,
+        "lon": 111.7480010986
+    },
+    {
+        "iata": "KTG",
+        "name": "Ketapang(Rahadi Usman) Airport",
+        "city": "Ketapang-Borneo Island",
+        "lat": -1.8166400194,
+        "lon": 109.9629974365
+    },
+    {
+        "iata": "MWK",
+        "name": "Tarempa Airport",
+        "city": "Matak Island",
+        "lat": 3.3481199741,
+        "lon": 106.2580032349
+    },
+    {
+        "iata": "NTX",
+        "name": "Ranai Airport",
+        "city": "Ranai-Natuna Besar Island",
+        "lat": 3.9087100029,
+        "lon": 108.3880004883
+    },
+    {
+        "iata": "PNK",
+        "name": "Supadio Airport",
+        "city": "Pontianak-Borneo Island",
+        "lat": -0.150711,
+        "lon": 109.4039993286
+    },
+    {
+        "iata": "PSU",
+        "name": "Pangsuma Airport",
+        "city": "Putussibau-Borneo Island",
+        "lat": 0.8355780244,
+        "lon": 112.93699646
+    },
+    {
+        "iata": "SQG",
+        "name": "Sintang(Susilo) Airport",
+        "city": "Sintang-Borneo Island",
+        "lat": 0.0636190027,
+        "lon": 111.4729995728
+    },
+    {
+        "iata": "DJB",
+        "name": "Sultan Thaha Airport",
+        "city": "Jambi-Sumatra Island",
+        "lat": -1.6380200386,
+        "lon": 103.6439971924
+    },
+    {
+        "iata": "PGK",
+        "name": "Pangkal Pinang (Depati Amir) Airport",
+        "city": "Pangkal Pinang-Palaubangka Island",
+        "lat": -2.1621999741,
+        "lon": 106.138999939
+    },
+    {
+        "iata": "BKS",
+        "name": "Padang Kemiling (Fatmawati Soekarno) Airport",
+        "city": "Bengkulu-Sumatra Island",
+        "lat": -3.863699913,
+        "lon": 102.3389968872
+    },
+    {
+        "iata": "PLM",
+        "name": "Sultan Mahmud Badaruddin Ii Airport",
+        "city": "Palembang-Sumatra Island",
+        "lat": -2.898250103,
+        "lon": 104.6999969482
+    },
+    {
+        "iata": "PDO",
+        "name": "Pendopo Airport",
+        "city": "Talang Gudang-Sumatra Island",
+        "lat": -3.2860701084,
+        "lon": 103.8799972534
+    },
+    {
+        "iata": "RGT",
+        "name": "Japura Airport",
+        "city": "Rengat-Sumatra Island",
+        "lat": -0.3528079987,
+        "lon": 102.3349990845
+    },
+    {
+        "iata": "MPC",
+        "name": "Muko Muko Airport",
+        "city": "Muko Muko-Sumatra Island",
+        "lat": -2.5418601036,
+        "lon": 101.0879974365
+    },
+    {
+        "iata": "KLQ",
+        "name": "Keluang Airport",
+        "city": "Keluang-Sumatra Island",
+        "lat": -2.623529911,
+        "lon": 103.9550018311
+    },
+    {
+        "iata": "TPK",
+        "name": "Teuku Cut Ali Airport",
+        "city": "Tapak Tuan-Sumatra Island",
+        "lat": 3.263420105,
+        "lon": 97.1837997437
+    },
+    {
+        "iata": "MEQ",
+        "name": "Seunagan Airport",
+        "city": "Peureumeue-Sumatra Island",
+        "lat": 4.25,
+        "lon": 96.2170028687
+    },
+    {
+        "iata": "LSX",
+        "name": "Lhok Sukon Airport",
+        "city": "Lhok Sukon-Sumatra Island",
+        "lat": 5.0695099831,
+        "lon": 97.2592010498
+    },
+    {
+        "iata": "LSW",
+        "name": "Malikus Saleh Airport",
+        "city": "Lhok Seumawe-Sumatra Island",
+        "lat": 5.2266798019,
+        "lon": 96.950302124
+    },
+    {
+        "iata": "SBG",
+        "name": "Maimun Saleh Airport",
+        "city": "Sabang-We Island",
+        "lat": 5.8741297722,
+        "lon": 95.3396987915
+    },
+    {
+        "iata": "BTJ",
+        "name": "Sultan Iskandarmuda Airport",
+        "city": "Banda Aceh-Sumatra Island",
+        "lat": 5.5235199928,
+        "lon": 95.4204025269
+    },
+    {
+        "iata": "ABU",
+        "name": "Haliwen Airport",
+        "city": "Atambua-Timor Island",
+        "lat": -9.0730495453,
+        "lon": 124.9049987793
+    },
+    {
+        "iata": "LKA",
+        "name": "Gewayentana Airport",
+        "city": "Larantuka-Flores Island",
+        "lat": -8.3466596603,
+        "lon": 122.9810028076
+    },
+    {
+        "iata": "SAU",
+        "name": "Sawu Airport",
+        "city": "Sawu-Sawu Island",
+        "lat": -10.483300209,
+        "lon": 121.9000015259
+    },
+    {
+        "iata": "SGQ",
+        "name": "Sanggata Airport",
+        "city": "Sanggata-Timor Island",
+        "lat": 0.5,
+        "lon": 117.3333587646
+    },
+    {
+        "iata": "LBW",
+        "name": "Long Bawan Airport",
+        "city": "Long Bawan-Borneo Island",
+        "lat": 3.867000103,
+        "lon": 115.6829986572
+    },
+    {
+        "iata": "BXT",
+        "name": "Bontang Airport",
+        "city": "Bontang-Borneo Island",
+        "lat": 0.1196909994,
+        "lon": 117.474998474
+    },
+    {
+        "iata": "NNX",
+        "name": "Nunukan Airport",
+        "city": "Nunukan-Nunukan Island",
+        "lat": 4.1365299225,
+        "lon": 117.6669998169
+    },
+    {
+        "iata": "TNB",
+        "name": "Tanah Grogot Airport",
+        "city": "Tanah Grogot-Borneo Island",
+        "lat": -1.910130024,
+        "lon": 116.202003479
+    },
+    {
+        "iata": "LPU",
+        "name": "Long Apung Airport",
+        "city": "Long Apung-Borneo Island",
+        "lat": 1.704486,
+        "lon": 114.970297
+    }
+]
