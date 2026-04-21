@@ -1,0 +1,11 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/u1525344/mobilitas.santri.hk
+    - export PUBLICPATH=/home/u1525344/public_html/mobilitas.santri.hk
+    # Copy Core Files
+    - /bin/cp -R app $DEPLOYPATH
+    - /bin/cp composer.json $DEPLOYPATH
+    - /bin/cp spark $DEPLOYPATH
+    # Copy Public Assets (Folders Only) - EXCLUDING index.php
+    - /bin/cp -R public/assets $PUBLICPATH
