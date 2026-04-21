@@ -139,7 +139,7 @@
         }
 
         .login-left .icon-wrapper {
-            width: 80px;
+            width: 110px;
             height: 80px;
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
@@ -148,6 +148,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 12px;
             margin-bottom: 28px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             animation: iconPulse 3s ease-in-out infinite;
@@ -538,6 +539,7 @@
     <div class="login-left">
         <div class="icon-wrapper">
             <i class="fas fa-bus-alt"></i>
+            <i class="fas fa-plane"></i>
         </div>
         <div class="brand-name">Mobilitas Santri</div>
         <h1>Selamat Datang!</h1>
