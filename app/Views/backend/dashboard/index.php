@@ -274,8 +274,9 @@ function getAirlineLink($maskapai, $urls) {
 <h4 class="mt-4 mb-3"><i class="fas fa-table"></i> Tabel Detail Registrasi Tiket</h4>
 <div class="card">
     <div class="card-body">
-        <table id="tabelRekap" class="table table-bordered table-striped table-hover">
-            <thead>
+        <div class="table-responsive">
+            <table id="tabelRekap" class="table table-bordered table-striped table-hover">
+                <thead>
                 <tr>
                     <th>No</th>
                     <th>Nama Santri</th>
@@ -348,7 +349,8 @@ function getAirlineLink($maskapai, $urls) {
                 </tr>
                 <?php endforeach; ?>
             </tbody>
-        </table>
+            </table>
+        </div>
     </div>
 </div>
 
