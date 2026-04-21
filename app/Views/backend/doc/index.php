@@ -27,7 +27,7 @@
         <div class="card-header p-0">
             <ul class="nav nav-tabs px-3 pt-2 bg-white" id="docTabs" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active font-weight-bold" id="overview-tab" data-toggle="tab" href="#overview" role="tab"><i class="fas fa-eye mr-2"></i> Ringkasan Sistem (IPO)</a>
+                    <a class="nav-link active font-weight-bold" id="overview-tab" data-toggle="tab" href="#overview" role="tab"><i class="fas fa-eye mr-2"></i> Ringkasan Sistem </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link font-weight-bold text-orange" id="parent-tab" data-toggle="tab" href="#parent" role="tab"><i class="fas fa-user-friends mr-2"></i> Panduan Orang Tua</a>
@@ -49,7 +49,7 @@
                                 <div class="card-header bg-info py-3"><h5 class="card-title m-0 font-weight-bold text-white">1. INPUT</h5></div>
                                 <div class="card-body">
                                     <ul class="list-unstyled">
-                                        <li class="mb-3"><i class="fas fa-check-circle text-success mr-2"></i> <strong>Data Master Santri</strong>: Import data dasar santri.</li>
+                                        <li class="mb-3"><i class="fas fa-check-circle text-success mr-2"></i> <strong>Data Master Santri</strong>: Data dasar diisi oleh orang tua santri.</li>
                                         <li class="mb-3"><i class="fas fa-check-circle text-success mr-2"></i> <strong>Jadwal Mobilitas</strong>: Tentukan jenis & aktifkan jadwal.</li>
                                         <li class="mb-3"><i class="fas fa-check-circle text-success mr-2"></i> <strong>Armada Bus</strong>: Input data armada & kapasitas.</li>
                                     </ul>
