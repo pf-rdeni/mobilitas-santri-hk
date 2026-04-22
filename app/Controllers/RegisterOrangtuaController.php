@@ -65,7 +65,7 @@ class RegisterOrangtuaController extends BaseController
         $user = new User([
             'fullname' => $this->request->getPost('fullname'),
             'username' => $this->request->getPost('username'),
-            'email'    => null,
+            'email'    => '',
             'password' => $this->request->getPost('password'), // User entity auto-hash via setPassword()
             'active'   => 0, // Menunggu aktivasi admin
         ]);
