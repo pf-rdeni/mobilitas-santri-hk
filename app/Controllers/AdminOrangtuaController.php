@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use Myth\Auth\Models\UserModel;
+use App\Models\UserModel;
 use Myth\Auth\Entities\User;
 use Myth\Auth\Models\GroupModel;
 
@@ -20,16 +20,23 @@ class AdminOrangtuaController extends BaseController
 
     public function index()
     {
-        // Ambil semua user yang berada di grup 'orangtua' (ID 4)
+        // Ambil SEMUA user grup 'orangtua' termasuk yang belum aktif (active=0)
         $users = $this->userModel->select('users.*')
                                 ->join('auth_groups_users', 'auth_groups_users.user_id = users.id')
                                 ->where('auth_groups_users.group_id', 4)
+                                ->orderBy('users.active', 'ASC')  // akun inactive muncul dulu
+                                ->orderBy('users.created_at', 'DESC')
                                 ->findAll();
+
+        $pending = array_filter($users, fn($u) => !$u->active);
+        $aktif   = array_filter($users, fn($u) => $u->active);
 
         $data = [
             'title'      => 'Manajemen Akun Orang Tua',
             'pageTitle'  => 'Daftar Akun Wali Santri',
             'users'      => $users,
+            'pending'    => array_values($pending),
+            'aktif'      => array_values($aktif),
             'breadcrumb' => [
                 ['title' => 'Home', 'url' => 'dashboard'],
                 ['title' => 'Manajemen Wali'],
@@ -64,7 +71,6 @@ class AdminOrangtuaController extends BaseController
         $rules = [
             'fullname' => 'required|max_length[100]',
             'username' => 'required|is_unique[users.username]|min_length[10]',
-            'email'    => 'permit_empty|valid_email|is_unique[users.email]',
             'password' => 'required|min_length[6]',
             'pass_confirm' => 'required|matches[password]',
         ];
@@ -77,12 +83,11 @@ class AdminOrangtuaController extends BaseController
         $user = new User([
             'fullname' => $this->request->getPost('fullname'),
             'username' => $this->request->getPost('username'),
-            'email'    => $this->request->getPost('email') ?: null,
             'password' => $this->request->getPost('password'),
             'active'   => 1,
         ]);
 
-        if (! $this->userModel->save($user)) {
+        if (! $this->userModel->skipValidation(true)->save($user)) {
             return redirect()->back()->withInput()->with('errors', $this->userModel->errors());
         }
 
@@ -92,7 +97,13 @@ class AdminOrangtuaController extends BaseController
         // Tambahkan ke grup 'orangtua' (ID 4)
         $this->groupModel->addUserToGroup($userId, 4);
 
-        return redirect()->to('/orangtua-manage')->with('success', 'Akun orang tua berhasil dibuat.');
+        return redirect()->to('/orangtua-manage')->with('success', 'Akun orang tua berhasil dibuat.')
+            ->with('wa_info', [
+                'type' => 'baru',
+                'fullname' => $this->request->getPost('fullname'),
+                'username' => $this->request->getPost('username'),
+                'password' => $this->request->getPost('password'),
+            ]);
     }
 
     public function edit($id)
@@ -126,7 +137,6 @@ class AdminOrangtuaController extends BaseController
         $rules = [
             'fullname' => 'required|max_length[100]',
             'username' => "required|min_length[10]|is_unique[users.username,id,{$id}]",
-            'email'    => "permit_empty|valid_email|is_unique[users.email,id,{$id}]",
         ];
 
         // Jika password diisi, maka validasi password
@@ -142,14 +152,22 @@ class AdminOrangtuaController extends BaseController
 
         $user->fullname = $this->request->getPost('fullname');
         $user->username = $this->request->getPost('username');
-        $user->email = $this->request->getPost('email') ?: null;
 
         if (! empty($password)) {
             $user->password = $password;
         }
 
-        if ($this->userModel->save($user)) {
-            return redirect()->to('/orangtua-manage')->with('success', 'Akun berhasil diperbarui.');
+        if ($this->userModel->skipValidation(true)->save($user)) {
+            $redirect = redirect()->to('/orangtua-manage')->with('success', 'Akun berhasil diperbarui.');
+            if (!empty($password)) {
+                $redirect->with('wa_info', [
+                    'type' => 'reset',
+                    'fullname' => $user->fullname,
+                    'username' => $user->username,
+                    'password' => $password
+                ]);
+            }
+            return $redirect;
         }
 
         return redirect()->back()->withInput()->with('error', 'Gagal memperbarui akun.');
@@ -161,5 +179,27 @@ class AdminOrangtuaController extends BaseController
             return redirect()->to('/orangtua-manage')->with('success', 'Akun berhasil dihapus.');
         }
         return redirect()->to('/orangtua-manage')->with('error', 'Gagal menghapus akun.');
+    }
+
+    public function activate($id)
+    {
+        $user = $this->userModel->find($id);
+        if (! $user) {
+            return redirect()->to('/orangtua-manage')->with('error', 'User tidak ditemukan.');
+        }
+
+        $this->userModel->skipValidation(true)->update($id, ['active' => 1]);
+        return redirect()->to('/orangtua-manage')->with('success', "Akun {$user->fullname} berhasil diaktifkan. Wali dapat login sekarang.");
+    }
+
+    public function deactivate($id)
+    {
+        $user = $this->userModel->find($id);
+        if (! $user) {
+            return redirect()->to('/orangtua-manage')->with('error', 'User tidak ditemukan.');
+        }
+
+        $this->userModel->skipValidation(true)->update($id, ['active' => 0]);
+        return redirect()->to('/orangtua-manage')->with('success', "Akun {$user->fullname} berhasil dinonaktifkan.");
     }
 }

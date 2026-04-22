@@ -24,76 +24,85 @@ function getAirlineLink($maskapai, $urls) {
 
 <!-- Welcome -->
 <div class="mb-4">
-    <h4><i class="fas fa-user-circle text-primary"></i> Assalamu'alaikum, <?= esc(user()->username) ?></h4>
+    <h4><i class="fas fa-user-circle text-primary"></i> Assalamu'alaikum, <?= esc(user()->fullname) ?></h4>
     <p class="text-muted">Selamat datang di Sistem Informasi Mobilitas Santri</p>
 </div>
 
-<!-- Card Summary -->
-<div class="row">
+<?php if ($totalSantri > 1): ?>
+<!-- Card Summary (Desktop) -->
+<div class="row d-none d-md-flex">
     <div class="col-lg-3 col-6">
         <div class="small-box bg-info">
-            <div class="inner">
-                <h3><?= $totalSantri ?></h3>
-                <p>Jumlah Santri</p>
-            </div>
+            <div class="inner"><h3><?= $totalSantri ?></h3><p>Jumlah Santri</p></div>
             <div class="icon"><i class="fas fa-user-graduate"></i></div>
         </div>
     </div>
     <div class="col-lg-3 col-6">
         <div class="small-box bg-success">
-            <div class="inner">
-                <h3><?= $totalTiket ?></h3>
-                <p>Tiket Terdaftar</p>
-            </div>
+            <div class="inner"><h3><?= $totalTiket ?></h3><p>Tiket Terdaftar</p></div>
             <div class="icon"><i class="fas fa-ticket-alt"></i></div>
         </div>
     </div>
     <div class="col-lg-3 col-6">
         <div class="small-box bg-primary">
-            <div class="inner">
-                <h3><?= $totalBerangkat ?></h3>
-                <p>Keberangkatan</p>
-            </div>
+            <div class="inner"><h3><?= $totalBerangkat ?></h3><p>Keberangkatan</p></div>
             <div class="icon"><i class="fas fa-plane-departure"></i></div>
         </div>
     </div>
     <div class="col-lg-3 col-6">
         <div class="small-box bg-warning">
-            <div class="inner">
-                <h3><?= $totalDatang ?></h3>
-                <p>Kedatangan</p>
-            </div>
+            <div class="inner"><h3><?= $totalDatang ?></h3><p>Kedatangan</p></div>
             <div class="icon"><i class="fas fa-plane-arrival"></i></div>
         </div>
     </div>
 </div>
 
-<!-- Card Button -->
-<div class="row mb-4">
-    <!-- Tombol Registrasi Tiket -->
-    <div class="col-md-6 mb-3">
-        <div class="card card-outline card-primary h-100">
-            <div class="card-body text-center py-4 d-flex flex-column justify-content-center">
-                <h5 class="mb-3"><i class="fas fa-ticket-alt text-primary"></i> Registrasi Tiket Penerbangan</h5>
-                <p class="text-muted mb-3 flex-grow-1">Daftarkan tiket penerbangan santri Anda untuk keberangkatan atau kedatangan.</p>
-                <a href="<?= base_url('registrasi-tiket') ?>" class="btn btn-primary btn-lg shadow-sm">
-                    <i class="fas fa-plus-circle mr-2"></i> Registrasi Tiket Baru
-                </a>
-            </div>
+<!-- Quick Stats (Mobile Only) -->
+<div class="row d-md-none mb-3 text-center">
+    <div class="col-3">
+        <div class="p-2 rounded bg-white shadow-sm border-bottom border-info">
+            <div class="text-info font-weight-bold h5 mb-0"><?= $totalSantri ?></div>
+            <div class="text-muted small" style="font-size: 0.6rem;">Santri</div>
         </div>
     </div>
-    
-    <!-- Tombol Pengaturan Santri -->
-    <div class="col-md-6 mb-3">
-        <div class="card card-outline card-warning h-100">
-            <div class="card-body text-center py-4 d-flex flex-column justify-content-center">
-                <h5 class="mb-3"><i class="fas fa-users-cog text-warning"></i> Pengaturan Data Santri</h5>
-                <p class="text-muted mb-3 flex-grow-1">Kelola data anak Anda, termasuk riwayat kelas dan asrama setiap tahun ajaran.</p>
-                <a href="<?= base_url('orangtua/santri') ?>" class="btn btn-warning btn-lg shadow-sm text-dark">
-                    <i class="fas fa-edit mr-2"></i> Kelola Data Santri
-                </a>
-            </div>
+    <div class="col-3">
+        <div class="p-2 rounded bg-white shadow-sm border-bottom border-success">
+            <div class="text-success font-weight-bold h5 mb-0"><?= $totalTiket ?></div>
+            <div class="text-muted small" style="font-size: 0.6rem;">Tiket</div>
         </div>
+    </div>
+    <div class="col-3">
+        <div class="p-2 rounded bg-white shadow-sm border-bottom border-primary">
+            <div class="text-primary font-weight-bold h5 mb-0"><?= $totalBerangkat ?></div>
+            <div class="text-muted small" style="font-size: 0.6rem;">Pergi</div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="p-2 rounded bg-white shadow-sm border-bottom border-warning">
+            <div class="text-warning font-weight-bold h5 mb-0"><?= $totalDatang ?></div>
+            <div class="text-muted small" style="font-size: 0.6rem;">Pulang</div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+<!-- Action Buttons (Simplified) -->
+<div class="row mb-4">
+    <div class="col-6">
+        <?php if ($totalSantri >= 1): ?>
+            <a href="<?= base_url('registrasi-tiket') ?>" class="btn btn-primary btn-block py-2 shadow-sm d-flex align-items-center justify-content-center" style="border-radius: 12px; font-size: 0.9rem;">
+                <i class="fas fa-ticket-alt mr-2"></i> <span>Registrasi Tiket</span>
+            </a>
+        <?php else: ?>
+            <button class="btn btn-secondary btn-block py-2 shadow-sm d-flex align-items-center justify-content-center disabled" style="border-radius: 12px; font-size: 0.9rem; cursor: not-allowed;" title="Daftarkan santri terlebih dahulu">
+                <i class="fas fa-ticket-alt mr-2"></i> <span>Registrasi Tiket</span>
+            </button>
+        <?php endif; ?>
+    </div>
+    <div class="col-6">
+        <a href="<?= base_url('orangtua/santri') ?>" class="btn btn-warning btn-block py-2 shadow-sm d-flex align-items-center justify-content-center text-dark" style="border-radius: 12px; font-size: 0.9rem;">
+            <i class="fas fa-users-cog mr-2"></i> <span>Kelola Data</span>
+        </a>
     </div>
 </div>
 

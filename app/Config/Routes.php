@@ -7,6 +7,13 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
+// ============================================================
+// REGISTRASI MANDIRI WALI SANTRI
+// ============================================================
+$routes->get('/register', 'RegisterOrangtuaController::index');
+$routes->post('/register', 'RegisterOrangtuaController::store');
+$routes->post('/register/check-nohp', 'RegisterOrangtuaController::checkNohp');
+
 // Special Login for Panitia (Simplified)
 $routes->get('login-panitia', 'AuthPanitiaController::login');
 
@@ -35,6 +42,10 @@ $routes->group('', ['filter' => 'role:orangtua'], function ($routes) {
     // Pengaturan Riwayat Santri
     $routes->post('/orangtua/santri/riwayat', 'Orangtua\SantriController::storeRiwayat');
     $routes->post('/orangtua/santri/riwayat/delete/(:num)', 'Orangtua\SantriController::deleteRiwayat/$1');
+
+    // Ubah Password Orangtua
+    $routes->get('/orangtua/ubah-password', 'OrangtuaDashboardController::ubahPassword');
+    $routes->post('/orangtua/ubah-password/update', 'OrangtuaDashboardController::updatePassword');
 });
 
 // ============================================================
@@ -63,6 +74,8 @@ $routes->group('', ['filter' => 'role:superadmin,admin,panitia'], function ($rou
         $routes->get('edit/(:num)', 'AdminOrangtuaController::edit/$1');
         $routes->post('update/(:num)', 'AdminOrangtuaController::update/$1');
         $routes->post('delete/(:num)', 'AdminOrangtuaController::delete/$1');
+        $routes->post('activate/(:num)', 'AdminOrangtuaController::activate/$1');
+        $routes->post('deactivate/(:num)', 'AdminOrangtuaController::deactivate/$1');
     });
 
     // Manajemen Panitia (Admin/Panitia)

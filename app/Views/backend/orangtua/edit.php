@@ -42,18 +42,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group mb-3">
-                        <label for="email">Alamat Email <small class="text-muted">(Opsional)</small></label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                            </div>
-                            <input type="email" name="email" id="email" class="form-control <?= session('errors.email') ? 'is-invalid' : '' ?>" value="<?= old('email', $user->email) ?>" placeholder="email@contoh.com">
-                            <?php if (session('errors.email')) : ?>
-                                <div class="invalid-feedback"><?= session('errors.email') ?></div>
-                            <?php endif ?>
-                        </div>
-                    </div>
+
 
                     <hr class="my-4">
                     <h6 class="text-muted font-weight-bold mb-3"><i class="fas fa-key mr-1"></i> Ganti Password (Opsional)</h6>

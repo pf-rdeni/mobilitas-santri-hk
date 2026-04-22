@@ -198,4 +198,40 @@ class OrangtuaDashboardController extends BaseController
 
         return view('frontend/orangtua/index', $data);
     }
+    public function ubahPassword()
+    {
+        $data = [
+            'title' => 'Ubah Password'
+        ];
+        return view('frontend/orangtua/ubah_password', $data);
+    }
+
+    public function updatePassword()
+    {
+        $rules = [
+            'password_lama' => 'required',
+            'password_baru' => 'required|min_length[6]',
+            'konfirmasi_password' => 'required|matches[password_baru]'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $userModel = new \App\Models\UserModel();
+        $user = $userModel->find(user_id());
+
+        // Verifikasi password lama
+        if (!password_verify($this->request->getPost('password_lama'), $user->password_hash)) {
+            return redirect()->back()->withInput()->with('error', 'Password lama tidak sesuai.');
+        }
+
+        $user->password = $this->request->getPost('password_baru');
+
+        if ($userModel->skipValidation(true)->save($user)) {
+            return redirect()->to('/orangtua/ubah-password')->with('success', 'Password berhasil diubah.');
+        }
+
+        return redirect()->back()->withInput()->with('error', 'Gagal mengubah password. Silakan coba lagi.');
+    }
 }

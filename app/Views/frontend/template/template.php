@@ -88,13 +88,22 @@
 
                 <div class="collapse navbar-collapse order-3" id="navbarCollapse">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="<?= base_url('/') ?>" class="nav-link">Beranda</a>
-                        </li>
                         <?php if (function_exists('logged_in') && logged_in()): ?>
-                        <li class="nav-item">
-                            <a href="<?= in_groups('orangtua') ? base_url('orangtua') : base_url('dashboard') ?>" class="nav-link">Dashboard</a>
-                        </li>
+                            <?php if (in_groups('orangtua')): ?>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('orangtua') ?>" class="nav-link">Beranda</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('orangtua/ubah-password') ?>" class="nav-link">Ubah Password</a>
+                                </li>
+                            <?php else: ?>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('/') ?>" class="nav-link">Beranda</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('dashboard') ?>" class="nav-link">Dashboard</a>
+                                </li>
+                            <?php endif; ?>
                         <li class="nav-item">
                             <a href="<?= base_url('logout') ?>" class="nav-link btn btn-danger text-white ml-2 px-3 shadow-sm rounded-pill">
                                 <i class="fas fa-sign-out-alt mr-1"></i> Logout
@@ -133,15 +142,26 @@
 
         <!-- Mobile Bottom Nav -->
         <div class="bottom-nav">
-            <a href="<?= base_url('/') ?>" class="bottom-nav-item active">
-                <i class="fas fa-home"></i>
-                <span>Beranda</span>
-            </a>
             <?php if (function_exists('logged_in') && logged_in()): ?>
-            <a href="<?= in_groups('orangtua') ? base_url('orangtua') : base_url('dashboard') ?>" class="bottom-nav-item">
-                <i class="fas fa-tachometer-alt"></i>
-                <span>Dashboard</span>
-            </a>
+                <?php if (in_groups('orangtua')): ?>
+                    <a href="<?= base_url('orangtua') ?>" class="bottom-nav-item active">
+                        <i class="fas fa-home"></i>
+                        <span>Beranda</span>
+                    </a>
+                    <a href="<?= base_url('orangtua/ubah-password') ?>" class="bottom-nav-item">
+                        <i class="fas fa-key"></i>
+                        <span>Password</span>
+                    </a>
+                <?php else: ?>
+                    <a href="<?= base_url('/') ?>" class="bottom-nav-item active">
+                        <i class="fas fa-home"></i>
+                        <span>Beranda</span>
+                    </a>
+                    <a href="<?= base_url('dashboard') ?>" class="bottom-nav-item">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                <?php endif; ?>
             <a href="<?= base_url('logout') ?>" class="bottom-nav-item">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Logout</span>
