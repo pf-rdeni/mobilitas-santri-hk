@@ -49,7 +49,8 @@
                                 <div class="card-header bg-info py-3"><h5 class="card-title m-0 font-weight-bold text-white">1. INPUT</h5></div>
                                 <div class="card-body">
                                     <ul class="list-unstyled">
-                                        <li class="mb-3"><i class="fas fa-check-circle text-success mr-2"></i> <strong>Data Master Santri</strong>: Data dasar diisi oleh orang tua santri.</li>
+                                        <li class="mb-3"><i class="fas fa-check-circle text-success mr-2"></i> <strong>Akun Wali Santri</strong>: Dapat didaftarkan oleh <b>Admin</b> atau secara <b>Mandiri</b> oleh Wali.</li>
+                                        <li class="mb-3"><i class="fas fa-check-circle text-success mr-2"></i> <strong>Data Master Santri</strong>: Data dasar santri diisi oleh wali santri</li>
                                         <li class="mb-3"><i class="fas fa-check-circle text-success mr-2"></i> <strong>Jadwal Mobilitas</strong>: Tentukan jenis & aktifkan jadwal.</li>
                                         <li class="mb-3"><i class="fas fa-check-circle text-success mr-2"></i> <strong>Armada Bus</strong>: Input data armada & kapasitas.</li>
                                     </ul>
@@ -87,24 +88,24 @@
                         <h5 class="font-weight-bold mb-4"><i class="fas fa-project-diagram mr-2 text-primary"></i> Alur Operasional Sistem</h5>
                         <div class="flow-container">
                             <div class="flow-step d-flex align-items-center">
-                                <div class="step-icon"><i class="fas fa-database"></i></div>
-                                <div><h6 class="font-weight-bold mb-1 text-sm">Persiapan Data (Admin)</h6><p class="text-xs text-muted mb-0">Input santri, jadwal aktif, dan armada bus.</p></div>
+                                <div class="step-icon"><i class="fas fa-user-plus"></i></div>
+                                <div><h6 class="font-weight-bold mb-1 text-sm">Registrasi & Aktivasi (Wali/Admin)</h6><p class="text-xs text-muted mb-0">Wali daftar mandiri atau diinput admin, lalu admin melakukan aktivasi akun.</p></div>
+                            </div>
+                            <div class="flow-step d-flex align-items-center">
+                                <div class="step-icon"><i class="fas fa-edit"></i></div>
+                                <div><h6 class="font-weight-bold mb-1 text-sm">Input Data & Tiket (Wali Santri)</h6><p class="text-xs text-muted mb-0">Wali melengkapi data santri dan mendaftarkan tiket perjalanan (Maskapai, Jam, PNR).</p></div>
                             </div>
                             <div class="flow-step d-flex align-items-center">
                                 <div class="step-icon"><i class="fas fa-map-marked-alt"></i></div>
-                                <div><h6 class="font-weight-bold mb-1 text-sm">Pemetaan & Penugasan (Admin)</h6><p class="text-xs text-muted mb-0">Plotting santri ke bus & penunjukan panitia.</p></div>
+                                <div><h6 class="font-weight-bold mb-1 text-sm">Pemetaan & Penugasan (Admin)</h6><p class="text-xs text-muted mb-0">Admin memetakan santri ke bus & menunjuk panitia pendamping (Bus/Terminal).</p></div>
                             </div>
                             <div class="flow-step d-flex align-items-center">
-                                <div class="step-icon"><i class="fas fa-mobile-alt"></i></div>
-                                <div><h6 class="font-weight-bold mb-1 text-sm">Portal Khusus Panitia (Staff)</h6><p class="text-xs text-muted mb-0">Panitia akses dashboard mobile & kontak koordinator.</p></div>
-                            </div>
-                            <div class="flow-step d-flex align-items-center">
-                                <div class="step-icon"><i class="fas fa-clipboard-list"></i></div>
-                                <div><h6 class="font-weight-bold mb-1 text-sm">Real-time Checklist (Staff)</h6><p class="text-xs text-muted mb-0">Verifikasi keberangkatan (Bus) & kedatangan (Terminal).</p></div>
+                                <div class="step-icon"><i class="fas fa-clipboard-check"></i></div>
+                                <div><h6 class="font-weight-bold mb-1 text-sm">Checklist Lapangan (Staff/Panitia)</h6><p class="text-xs text-muted mb-0">Panitia verifikasi kehadiran santri di Bus & Terminal secara real-time via mobile.</p></div>
                             </div>
                             <div class="flow-step d-flex align-items-center">
                                 <div class="step-icon"><i class="fas fa-chart-line"></i></div>
-                                <div><h6 class="font-weight-bold mb-1 text-sm">Monitoring & Pelaporan (Admin)</h6><p class="text-xs text-muted mb-0">Pusat memantau laporan real-time.</p></div>
+                                <div><h6 class="font-weight-bold mb-1 text-sm">Monitoring & Pelaporan (Admin)</h6><p class="text-xs text-muted mb-0">Pusat memantau pergerakan santri dan mengunduh laporan rekapitulasi.</p></div>
                             </div>
                         </div>
                     </div>
@@ -116,15 +117,22 @@
                         <div class="col-md-7">
                             <h4 class="font-weight-bold text-orange mb-4">Panduan Penggunaan bagi Wali / Orang Tua</h4>
                             <div class="mb-4">
-                                <h6 class="font-weight-bold"><i class="fas fa-key text-muted mr-2"></i> 1. Akses & Login</h6>
-                                <p class="text-muted text-sm">Wali login menggunakan Username & Password yang telah dibagikan. Pastikan menggunakan portal resmi untuk keamanan data.</p>
+                                <h6 class="font-weight-bold"><i class="fas fa-key text-muted mr-2"></i> 1. Pendaftaran & Akses Akun</h6>
+                                <p class="text-muted text-sm">Wali santri dapat memiliki akun melalui dua cara:
+                                    <br>• <b>Pendaftaran Mandiri</b>: Melalui halaman daftar di aplikasi (perlu aktivasi Admin).
+                                    <br>• <b>Dibuat oleh Admin</b>: Admin menginput data wali secara langsung melalui panel Manajemen Orang Tua.
+                                    <br>Login menggunakan No HP (sebagai Username) dan Password yang telah dibuat/diberikan.</p>
                             </div>
                             <div class="mb-4">
-                                <h6 class="font-weight-bold"><i class="fas fa-ticket-alt text-muted mr-2"></i> 2. Registrasi Tiket / Flight</h6>
-                                <p class="text-muted text-sm">Buka menu <strong>"Registrasi Tiket"</strong>. Masukkan detail penerbangan (Maskapai, Jam, No Penerbangan) untuk mempermudah admin membagi rombongan bus yang sesuai.</p>
+                                <h6 class="font-weight-bold"><i class="fas fa-user-plus text-muted mr-2"></i> 2. Tambah Data Santri (Wajib)</h6>
+                                <p class="text-muted text-sm">Sebelum mendaftarkan tiket, Anda <b>wajib</b> menambahkan data putra/putri Anda melalui menu <strong>"Kelola Data Santri"</strong>. Isi NIK, Nama, dan Kelas dengan benar sesuai data akademik.</p>
                             </div>
                             <div class="mb-4">
-                                <h6 class="font-weight-bold"><i class="fas fa-info-circle text-muted mr-2"></i> 3. Pantau Status Mobilitas</h6>
+                                <h6 class="font-weight-bold"><i class="fas fa-ticket-alt text-muted mr-2"></i> 3. Registrasi Tiket / Flight</h6>
+                                <p class="text-muted text-sm">Setelah data santri ada, buka menu <strong>"Registrasi Tiket"</strong>. Masukkan detail penerbangan (Maskapai, Jam, PNR) untuk mempermudah admin membagi rombongan bus yang sesuai. Menu ini hanya akan aktif jika Anda sudah memiliki data santri.</p>
+                            </div>
+                            <div class="mb-4">
+                                <h6 class="font-weight-bold"><i class="fas fa-info-circle text-muted mr-2"></i> 4. Pantau Status Mobilitas</h6>
                                 <p class="text-muted text-sm">Gunakan Dashboard Orang Tua untuk melihat apakah putra/putri Anda sudah naik bus, sudah tiba di terminal, atau sudah dalam pemantauan petugas di bandara/terminal tujuan.</p>
                             </div>
                         </div>
