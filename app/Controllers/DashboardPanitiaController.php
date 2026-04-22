@@ -67,6 +67,14 @@ class DashboardPanitiaController extends BaseController
                 ->where('jadwal_mobilitas.jenis', 'kedatangan')
                 ->countAllResults();
         }
+        
+        // Statistik Tambahan: Menunggu Aktivasi Wali Santri (Group 4)
+        $statPendingAktivasi = $db->table('users')
+            ->join('auth_groups_users', 'auth_groups_users.user_id = users.id')
+            ->where('auth_groups_users.group_id', 4)
+            ->where('users.active', 0)
+            ->where('users.deleted_at', null)
+            ->countAllResults();
 
         // Rekap untuk jadwal yang terpilih
         $kebutuhanBus = 0;
@@ -194,7 +202,8 @@ class DashboardPanitiaController extends BaseController
             'tiketList'      => $tiketList,
             'buses'          => $buses,
             'timeGroups'     => $timeGroups,
-            'grupRaw'        => $dataGrup, // <--- Data Row dari DB
+            'grupRaw'             => $dataGrup,
+            'statPendingAktivasi' => $statPendingAktivasi,
         ];
 
         return view('backend/dashboard/index', $data);

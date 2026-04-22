@@ -38,7 +38,7 @@
 <!-- Tabs -->
 <ul class="nav nav-tabs mb-0" id="orangtuaTabs">
     <li class="nav-item">
-        <a class="nav-link active font-weight-bold" href="#tab-pending" data-toggle="tab">
+        <a class="nav-link <?= $pendingCount > 0 ? 'active font-weight-bold' : '' ?>" href="#tab-pending" data-toggle="tab">
             <i class="fas fa-hourglass-half text-warning mr-1"></i> Menunggu Aktivasi
             <?php if ($pendingCount > 0): ?>
                 <span class="badge badge-warning ml-1"><?= $pendingCount ?></span>
@@ -46,7 +46,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#tab-aktif" data-toggle="tab">
+        <a class="nav-link <?= $pendingCount == 0 ? 'active font-weight-bold' : '' ?>" href="#tab-aktif" data-toggle="tab">
             <i class="fas fa-check-circle text-success mr-1"></i> Akun Aktif
             <span class="badge badge-success ml-1"><?= count($aktif ?? []) ?></span>
         </a>
@@ -58,7 +58,7 @@
         <div class="tab-content">
 
             <!-- TAB: Menunggu Aktivasi -->
-            <div class="tab-pane fade show active" id="tab-pending">
+            <div class="tab-pane fade <?= $pendingCount > 0 ? 'show active' : '' ?>" id="tab-pending">
                 <?php if (empty($pending)): ?>
                     <div class="p-4 text-center text-muted">
                         <i class="fas fa-check-circle fa-2x text-success mb-2 d-block"></i>
@@ -119,7 +119,7 @@
             </div>
 
             <!-- TAB: Akun Aktif -->
-            <div class="tab-pane fade" id="tab-aktif">
+            <div class="tab-pane fade <?= $pendingCount == 0 ? 'show active' : '' ?>" id="tab-aktif">
                 <div class="table-responsive">
                     <table id="tabelAktif" class="table table-bordered table-striped table-hover mb-0">
                         <thead class="bg-light">

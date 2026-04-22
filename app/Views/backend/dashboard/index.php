@@ -54,6 +54,26 @@ function getAirlineLink($maskapai, $urls) {
     <?php endif; ?>
 </form>
 
+<!-- 1.1. Status Aktivasi Wali (Hanya muncul jika ada yang menunggu) -->
+<?php if(isset($statPendingAktivasi) && $statPendingAktivasi > 0): ?>
+<div class="row mt-2">
+    <div class="col-12">
+        <div class="small-box bg-maroon shadow-sm border-0">
+            <div class="inner">
+                <h3><?= $statPendingAktivasi ?></h3>
+                <p class="font-weight-bold">Wali Santri Menunggu Aktivasi Akun Mandiri</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-user-check"></i>
+            </div>
+            <a href="<?= base_url('orangtua-manage') ?>" class="small-box-footer" style="background: rgba(0,0,0,0.1);">
+                Klik untuk Aktivasi Akun Wali <i class="fas fa-arrow-circle-right ml-1"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
 <!-- 1. Small Boxes / Summary -->
 <div class="row mt-3">
     <div class="col-lg-3 col-6">
@@ -373,7 +393,29 @@ function getAirlineLink($maskapai, $urls) {
 <?= $this->section('scripts'); ?>
 <script>
 $(document).ready(function() {
-    $('#tabelRekap').DataTable();
+    var table = $('#tabelRekap').DataTable({
+        "buttons": [
+            {
+                extend: 'excelHtml5',
+                text: '<i class="fas fa-file-excel"></i> Excel',
+                className: 'btn-success btn-sm'
+            },
+            {
+                extend: 'pdfHtml5',
+                text: '<i class="fas fa-file-pdf"></i> PDF',
+                className: 'btn-danger btn-sm'
+            },
+            {
+                extend: 'print',
+                text: '<i class="fas fa-print"></i> Print',
+                className: 'btn-info btn-sm'
+            }
+        ],
+        "dom": "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
+               "<'row'<'col-sm-12 mb-2'B>>" +
+               "<'row'<'col-sm-12'tr>>" +
+               "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+    });
 
     // Add Row
     $('#btn-add-row').on('click', function() {
