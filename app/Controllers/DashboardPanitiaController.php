@@ -212,6 +212,26 @@ class DashboardPanitiaController extends BaseController
         
         return redirect()->back()->with('success', 'Petugas Terminal ' . $terminal . ' berhasil diperbarui!');
     }
+    public function verifyPayment($id)
+    {
+        if (! logged_in()) return $this->response->setJSON(['status' => 'error', 'message' => 'Unauthorized']);
+        if (! in_groups(['admin', 'superadmin', 'panitia'])) return $this->response->setJSON(['status' => 'error', 'message' => 'Forbidden']);
+
+        $tiket = $this->tiketModel->find($id);
+        if (!$tiket) {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Data tidak ditemukan']);
+        }
+
+        $status = $this->request->getPost('status'); // 'diverifikasi' or 'belum' (to reject/reset)
+        
+        if ($this->tiketModel->skipValidation(true)->update($id, ['status_transfer' => $status])) {
+            $msg = $status == 'diverifikasi' ? 'Pembayaran berhasil diverifikasi!' : 'Status pembayaran dibatalkan/dikembalikan.';
+            return $this->response->setJSON(['status' => 'success', 'message' => $msg]);
+        }
+
+        return $this->response->setJSON(['status' => 'error', 'message' => 'Gagal memperbarui status']);
+    }
+
     public function saveGroups()
     {
         if (! logged_in()) return redirect()->to('/login');

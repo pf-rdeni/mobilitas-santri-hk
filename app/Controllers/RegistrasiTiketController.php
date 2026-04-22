@@ -62,7 +62,7 @@ class RegistrasiTiketController extends BaseController
             'terminal_bandara'  => 'required',
             'tanggal_penerbangan' => 'required|valid_date[Y-m-d]',
             'waktu_penerbangan' => 'required', // Validasi format jam dilakukan manual atau via regex
-            'status_transfer'   => 'required|in_list[belum,sudah]',
+            'status_transfer'   => 'required|in_list[belum,sudah,diverifikasi]',
             'bukti_tiket'       => 'max_size[bukti_tiket,2048]|ext_in[bukti_tiket,png,jpg,jpeg,pdf]',
             'bukti_transfer'    => 'max_size[bukti_transfer,2048]|ext_in[bukti_transfer,png,jpg,jpeg,pdf]',
         ];
@@ -220,7 +220,7 @@ class RegistrasiTiketController extends BaseController
         $fileTiket = $this->request->getFile('bukti_tiket');
         $namaTiket = $this->_uploadAndResize($fileTiket, FCPATH . 'uploads/tiket', $tiket->bukti_tiket);
 
-        if ($statusTransfer == 'sudah') {
+        if ($statusTransfer == 'sudah' || $statusTransfer == 'diverifikasi') {
             $fileTransfer = $this->request->getFile('bukti_transfer');
             $namaTransfer = $this->_uploadAndResize($fileTransfer, FCPATH . 'uploads/transfer', $tiket->bukti_transfer);
         } else {

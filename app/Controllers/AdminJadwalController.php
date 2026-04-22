@@ -5,6 +5,9 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\JadwalMobilitasModel;
 use App\Models\ArmadaBusModel;
+use App\Models\RegistrasiTiketModel;
+use App\Models\PenugasanTerminalModel;
+use App\Models\PenugasanTerminalPanitiaModel;
 
 class AdminJadwalController extends BaseController
 {
@@ -133,16 +136,69 @@ class AdminJadwalController extends BaseController
         return redirect()->back()->withInput()->with('error', 'Gagal memperbarui jadwal.');
     }
 
-    public function delete($id)
+    public function getDependencySummary($id)
     {
-        // Cek apakah ada bus yang menggunakan jadwal ini
-        $busCount = $this->busModel->where('id_jadwal', $id)->countAllResults();
-        if ($busCount > 0) {
-            return redirect()->to('/admin-jadwal')->with('error', "Gagal menghapus. Jadwal ini masih memiliki $busCount armada bus yang terdaftar.");
+        $jadwal = $this->jadwalModel->find($id);
+        if (!$jadwal) {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Jadwal tidak ditemukan.']);
         }
 
-        if ($this->jadwalModel->delete($id)) {
-            return redirect()->to('/admin-jadwal')->with('success', 'Jadwal berhasil dihapus.');
+        $tiketModel = new RegistrasiTiketModel();
+        $penugasanModel = new PenugasanTerminalModel();
+        $panitiaModel = new PenugasanTerminalPanitiaModel();
+
+        $summary = [
+            'santri'    => $tiketModel->where('id_jadwal', $id)->countAllResults(),
+            'bus'       => $this->busModel->where('id_jadwal', $id)->countAllResults(),
+            'penugasan' => $penugasanModel->where('id_jadwal', $id)->countAllResults() + 
+                           $panitiaModel->where('id_jadwal', $id)->countAllResults(),
+            'is_aktif'  => $jadwal->status === 'aktif'
+        ];
+
+        return $this->response->setJSON(['status' => 'success', 'data' => $summary]);
+    }
+
+    public function delete($id)
+    {
+        $jadwal = $this->jadwalModel->find($id);
+        if (!$jadwal) {
+            return redirect()->to('/admin-jadwal')->with('error', 'Data jadwal tidak ditemukan.');
+        }
+
+        $tiketModel = new RegistrasiTiketModel();
+        $tiketCount = $tiketModel->withDeleted()->where('id_jadwal', $id)->countAllResults();
+
+        // Jadwal aktif hanya boleh dihapus jika masih kosong (belum ada santri/tiket)
+        if ($jadwal->status === 'aktif' && $tiketCount > 0) {
+            return redirect()->to('/admin-jadwal')->with('error', 'Gagal menghapus. Jadwal AKTIF yang sudah memiliki data santri tidak boleh dihapus demi stabilitas sistem. Silakan set jadwal lain menjadi aktif terlebih dahulu.');
+        }
+
+        try {
+            // 1. Cleanup File Fisik (Tiket & Transfer) - jika ada (biasanya 0 jika aktif & kosong)
+            $allTikets = $tiketModel->withDeleted()->where('id_jadwal', $id)->findAll();
+            
+            foreach ($allTikets as $t) {
+                if ($t->bukti_tiket) {
+                    $pathTiket = FCPATH . 'uploads/tiket/' . $t->bukti_tiket;
+                    $thumbTiket = FCPATH . 'uploads/tiket/thumb_' . $t->bukti_tiket;
+                    if (file_exists($pathTiket)) @unlink($pathTiket);
+                    if (file_exists($thumbTiket)) @unlink($thumbTiket);
+                }
+
+                if ($t->bukti_transfer) {
+                    $pathTransfer = FCPATH . 'uploads/transfer/' . $t->bukti_transfer;
+                    $thumbTransfer = FCPATH . 'uploads/transfer/thumb_' . $t->bukti_transfer;
+                    if (file_exists($pathTransfer)) @unlink($pathTransfer);
+                    if (file_exists($thumbTransfer)) @unlink($thumbTransfer);
+                }
+            }
+
+            // 2. Hapus dari Database
+            if ($this->jadwalModel->delete($id)) {
+                return redirect()->to('/admin-jadwal')->with('success', 'Jadwal berhasil dihapus permanen.');
+            }
+        } catch (\Exception $e) {
+            return redirect()->to('/admin-jadwal')->with('error', 'Gagal menghapus jadwal: ' . $e->getMessage());
         }
 
         return redirect()->to('/admin-jadwal')->with('error', 'Gagal menghapus jadwal.');
@@ -154,7 +210,7 @@ class AdminJadwalController extends BaseController
         $this->jadwalModel->where('status', 'aktif')->set(['status' => 'selesai'])->update();
         
         // Aktifkan yang dipilih
-        if ($this->jadwalModel->update($id, ['status' => 'aktif'])) {
+        if ($this->jadwalModel->skipValidation(true)->update($id, ['status' => 'aktif'])) {
             return redirect()->to('/admin-jadwal')->with('success', 'Jadwal terpilih sekarang menjadi Jadwal Aktif.');
         }
 

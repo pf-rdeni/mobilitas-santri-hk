@@ -315,11 +315,21 @@ function getAirlineLink($maskapai, $urls) {
                         <small><?= date('d M Y', strtotime($t->tanggal_pelaksanaan)) ?></small>
                     </td>
                     <td>
-                        <?php if(isset($t->status_transfer) && $t->status_transfer == 'sudah' && isset($t->bukti_transfer) && $t->bukti_transfer): ?>
-                            <a href="<?= base_url('uploads/transfer/' . $t->bukti_transfer) ?>" target="_blank" class="badge badge-success mb-1"><i class="fas fa-receipt"></i> Lunas Bus</a>
+                        <div class="mb-1">
+                        <?php if(isset($t->status_transfer) && $t->status_transfer == 'diverifikasi'): ?>
+                            <span class="badge badge-success"><i class="fas fa-check-double"></i> Terverifikasi (Lunas)</span>
+                            <button class="btn btn-xs btn-link text-danger btn-verify" data-id="<?= $t->id ?>" data-status="belum" title="Batalkan Verifikasi"><i class="fas fa-undo"></i></button>
+                        <?php elseif(isset($t->status_transfer) && $t->status_transfer == 'sudah' && isset($t->bukti_transfer) && $t->bukti_transfer): ?>
+                            <span class="badge badge-warning mb-1"><i class="fas fa-hourglass-half"></i> Menunggu Verifikasi</span>
+                            <div class="btn-group btn-group-xs">
+                                <a href="<?= base_url('uploads/transfer/' . $t->bukti_transfer) ?>" target="_blank" class="btn btn-xs btn-info" title="Lihat Bukti Transfer"><i class="fas fa-eye"></i></a>
+                                <button class="btn btn-xs btn-success btn-verify" data-id="<?= $t->id ?>" data-status="diverifikasi" title="Verifikasi Pembayaran"><i class="fas fa-check"></i></button>
+                            </div>
                         <?php else: ?>
-                            <span class="badge badge-warning mb-1"><i class="fas fa-clock"></i> Blm Lunas Bus</span>
+                            <span class="badge badge-secondary mb-1"><i class="fas fa-times-circle"></i> Belum Bayar Bus</span>
                         <?php endif; ?>
+                        </div>
+
                         <div class="mt-1">
                         <?php if(isset($t->bukti_tiket) && $t->bukti_tiket): ?>
                             <a href="<?= base_url('uploads/tiket/' . $t->bukti_tiket) ?>" target="_blank" class="badge badge-primary"><i class="fas fa-ticket-alt"></i> E-Ticket</a>
@@ -381,13 +391,52 @@ $(document).ready(function() {
         $('#tableGrupJam tbody').append(row);
     });
 
-    // Remove Row
-    $(document).on('click', '.btn-remove-row', function() {
-        if ($('#tableGrupJam tbody tr').length > 1) {
-            $(this).closest('tr').remove();
-        } else {
-            alert('Minimal harus ada satu grup jam.');
-        }
+    // Verify Payment Action
+    $(document).on('click', '.btn-verify', function() {
+        const id = $(this).data('id');
+        const status = $(this).data('status');
+        const title = status === 'diverifikasi' ? 'Verifikasi Pembayaran?' : 'Batalkan Verifikasi?';
+        const text = status === 'diverifikasi' ? 'Pastikan bukti transfer sudah sesuai dengan dana masuk di rekening.' : 'Status akan dikembalikan menjadi belum lunas.';
+        
+        Swal.fire({
+            title: title,
+            text: text,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: status === 'diverifikasi' ? '#28a745' : '#d33',
+            cancelButtonColor: '#6c757d',
+            confirmButtonText: 'Ya, Lanjutkan!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '<?= base_url('dashboard/verify-payment') ?>/' + id,
+                    type: 'POST',
+                    data: {
+                        status: status,
+                        <?= csrf_token() ?>: '<?= csrf_hash() ?>'
+                    },
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Berhasil!',
+                                text: response.message,
+                                timer: 1500,
+                                showConfirmButton: false
+                            }).then(() => {
+                                location.reload();
+                            });
+                        } else {
+                            Swal.fire('Gagal!', response.message, 'error');
+                        }
+                    },
+                    error: function() {
+                        Swal.fire('Error!', 'Terjadi kesalahan sistem.', 'error');
+                    }
+                });
+            }
+        });
     });
 });
 </script>

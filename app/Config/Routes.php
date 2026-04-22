@@ -46,6 +46,7 @@ $routes->group('', ['filter' => 'role:superadmin,admin,panitia'], function ($rou
     $routes->get('/panitia', 'PanitiaDashboardController::index');
     $routes->post('dashboard/update-penugasan', 'DashboardPanitiaController::updatePenugasan');
     $routes->post('dashboard/update-settings', 'DashboardPanitiaController::saveGroups');
+    $routes->post('dashboard/verify-payment/(:num)', 'DashboardPanitiaController::verifyPayment/$1');
     $routes->get('/admin-doc', 'AdminDocController::index');
 
     // Manajemen Santri (Admin/Panitia)
@@ -108,6 +109,7 @@ $routes->group('', ['filter' => 'role:superadmin,admin,panitia'], function ($rou
         $routes->get('edit/(:num)', 'AdminJadwalController::edit/$1');
         $routes->post('update/(:num)', 'AdminJadwalController::update/$1');
         $routes->get('delete/(:num)', 'AdminJadwalController::delete/$1');
+        $routes->get('get-summary/(:num)', 'AdminJadwalController::getDependencySummary/$1');
         $routes->post('set-aktif/(:num)', 'AdminJadwalController::setAktif/$1');
     });
 

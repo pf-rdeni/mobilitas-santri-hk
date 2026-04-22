@@ -125,18 +125,64 @@ $(document).ready(function() {
         const id = $(this).data('id');
         const name = $(this).data('name');
         
+        // Show loading state
         Swal.fire({
-            title: 'Hapus Jadwal?',
-            html: `Yakin ingin menghapus jadwal <b>${name}</b>?<br><small class="text-danger">Aksi ini tidak dapat dibatalkan.</small>`,
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Ya, Hapus!',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = '<?= base_url('admin-jadwal/delete') ?>/' + id;
+            title: 'Memuat Data...',
+            text: 'Sedang menghitung data yang terdampak...',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
+        // Fetch dependency summary
+        $.ajax({
+            url: '<?= base_url('admin-jadwal/get-summary') ?>/' + id,
+            method: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                if (response.status === 'success') {
+                    const data = response.data;
+                    
+                    if (data.is_aktif && data.santri > 0) {
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Jadwal AKTIF yang sudah memiliki data santri tidak dapat dihapus.',
+                            icon: 'error'
+                        });
+                        return;
+                    }
+
+                    let summaryHtml = `<div class="text-left mt-3 p-3 bg-light border rounded">
+                        <p class="mb-1"><i class="fas fa-users text-primary mr-2"></i> Santri Terdaftar: <b>${data.santri}</b></p>
+                        <p class="mb-1"><i class="fas fa-bus text-warning mr-2"></i> Armada Bus: <b>${data.bus}</b></p>
+                        <p class="mb-0"><i class="fas fa-user-shield text-info mr-2"></i> Penugasan Petugas: <b>${data.penugasan}</b></p>
+                    </div>
+                    <div class="alert alert-danger mt-3 mb-0 py-2 text-sm text-left">
+                        <i class="fas fa-exclamation-triangle mr-1"></i> <b>PERHATIAN:</b> Menghapus jadwal ini akan menghapus <b>SEMUA</b> data di atas secara permanen, termasuk <b>file tiket & bukti transfer</b> di server untuk menghemat ruang penyimpanan.
+                    </div>`;
+
+                    Swal.fire({
+                        title: 'Hapus Jadwal?',
+                        html: `Yakin ingin menghapus jadwal <b>${name}</b>?<br>${summaryHtml}`,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: 'Ya, Hapus Permanen!',
+                        cancelButtonText: 'Batal',
+                        width: '550px'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '<?= base_url('admin-jadwal/delete') ?>/' + id;
+                        }
+                    });
+                } else {
+                    Swal.fire('Error', response.message, 'error');
+                }
+            },
+            error: function() {
+                Swal.fire('Error', 'Gagal mengambil informasi data.', 'error');
             }
         });
     });

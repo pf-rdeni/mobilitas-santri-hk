@@ -283,10 +283,12 @@ function getAirlineLink($maskapai, $urls) {
                                         <span class="badge badge-info"><i class="fas fa-barcode mr-1"></i> <?= esc($t->kode_booking) ?: '-' ?></span>
                                     </td>
                                     <td>
-                                        <?php if(isset($t->status_transfer) && $t->status_transfer == 'sudah' && isset($t->bukti_transfer) && $t->bukti_transfer): ?>
-                                            <a href="<?= base_url('uploads/transfer/' . $t->bukti_transfer) ?>" target="_blank" class="badge badge-success mb-1"><i class="fas fa-receipt"></i> Lunas Bus</a>
+                                        <?php if(isset($t->status_transfer) && $t->status_transfer == 'diverifikasi'): ?>
+                                            <span class="badge badge-success mb-1"><i class="fas fa-check-double"></i> Pembayaran Lunas</span>
+                                        <?php elseif(isset($t->status_transfer) && $t->status_transfer == 'sudah' && isset($t->bukti_transfer) && $t->bukti_transfer): ?>
+                                            <span class="badge badge-warning mb-1 text-white"><i class="fas fa-hourglass-half"></i> Menunggu Verifikasi</span>
                                         <?php else: ?>
-                                            <span class="badge badge-warning mb-1"><i class="fas fa-clock"></i> Blm Lunas Bus</span>
+                                            <span class="badge badge-secondary mb-1"><i class="fas fa-times-circle"></i> Belum Bayar Bus</span>
                                         <?php endif; ?>
                                         <div class="mt-1">
                                         <?php if(isset($t->bukti_tiket) && $t->bukti_tiket): ?>

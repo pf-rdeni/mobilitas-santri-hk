@@ -64,7 +64,7 @@ class AdminOrangtuaController extends BaseController
         $rules = [
             'fullname' => 'required|max_length[100]',
             'username' => 'required|is_unique[users.username]|min_length[10]',
-            'email'    => 'required|valid_email|is_unique[users.email]',
+            'email'    => 'permit_empty|valid_email|is_unique[users.email]',
             'password' => 'required|min_length[6]',
             'pass_confirm' => 'required|matches[password]',
         ];
@@ -77,7 +77,7 @@ class AdminOrangtuaController extends BaseController
         $user = new User([
             'fullname' => $this->request->getPost('fullname'),
             'username' => $this->request->getPost('username'),
-            'email'    => $this->request->getPost('email'),
+            'email'    => $this->request->getPost('email') ?: null,
             'password' => $this->request->getPost('password'),
             'active'   => 1,
         ]);
@@ -126,7 +126,7 @@ class AdminOrangtuaController extends BaseController
         $rules = [
             'fullname' => 'required|max_length[100]',
             'username' => "required|min_length[10]|is_unique[users.username,id,{$id}]",
-            'email'    => "required|valid_email|is_unique[users.email,id,{$id}]",
+            'email'    => "permit_empty|valid_email|is_unique[users.email,id,{$id}]",
         ];
 
         // Jika password diisi, maka validasi password
@@ -142,7 +142,7 @@ class AdminOrangtuaController extends BaseController
 
         $user->fullname = $this->request->getPost('fullname');
         $user->username = $this->request->getPost('username');
-        $user->email = $this->request->getPost('email');
+        $user->email = $this->request->getPost('email') ?: null;
 
         if (! empty($password)) {
             $user->password = $password;

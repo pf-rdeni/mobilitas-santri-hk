@@ -185,15 +185,23 @@
             <div class="form-group row bg-light p-3 border rounded mx-0">
                 <div class="col-md-6 mb-3 mb-md-0">
                     <label>Status Transfer Biaya Bus Panitia</label>
-                    <div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="tf_belum" name="status_transfer" class="custom-control-input" value="belum" <?= old('status_transfer', $tiket->status_transfer ?? 'belum') == 'belum' ? 'checked' : '' ?> required>
-                            <label class="custom-control-label" for="tf_belum">Belum Transfer</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="tf_sudah" name="status_transfer" class="custom-control-input" value="sudah" <?= old('status_transfer', $tiket->status_transfer ?? '') == 'sudah' ? 'checked' : '' ?> required>
-                            <label class="custom-control-label text-success" for="tf_sudah">Sudah Transfer</label>
-                        </div>
+                    <div class="mb-2">
+                        <?php if(isset($tiket->status_transfer) && $tiket->status_transfer == 'diverifikasi'): ?>
+                            <div class="alert alert-success py-2 px-3 mb-2">
+                                <i class="fas fa-check-double mr-1"></i> <strong>Pembayaran Terverifikasi (Lunas)</strong><br>
+                                <small>Data pembayaran sudah dicek dan disetujui oleh Panitia.</small>
+                            </div>
+                            <input type="hidden" name="status_transfer" value="diverifikasi">
+                        <?php else: ?>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="tf_belum" name="status_transfer" class="custom-control-input" value="belum" <?= old('status_transfer', $tiket->status_transfer ?? 'belum') == 'belum' ? 'checked' : '' ?> required>
+                                <label class="custom-control-label" for="tf_belum">Belum Transfer</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="tf_sudah" name="status_transfer" class="custom-control-input" value="sudah" <?= old('status_transfer', $tiket->status_transfer ?? '') == 'sudah' ? 'checked' : '' ?> required>
+                                <label class="custom-control-label text-success" for="tf_sudah">Sudah Transfer</label>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="col-md-6">
