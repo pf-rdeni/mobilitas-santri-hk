@@ -83,7 +83,7 @@ class AdminOrangtuaController extends BaseController
         $user = new User([
             'fullname' => $this->request->getPost('fullname'),
             'username' => $this->request->getPost('username'),
-            'email'    => '',
+            'email'    => $this->request->getPost('username') . '@mobilitas.santri.hk',
             'password' => $this->request->getPost('password'),
             'active'   => 1,
         ]);
