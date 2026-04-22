@@ -248,21 +248,44 @@ function getAirlineLink($maskapai, $urls) {
                         <table id="table-active" class="table table-bordered table-striped table-hover mb-0 w-100">
                             <thead class="bg-success text-white">
                                 <tr>
+                                    <th width="120" class="text-center">Aksi</th>
                                     <th>Nama Santri</th>
-                                    <th>Jenis / Tgl</th>
-                                    <th>Maskapai & PNR</th>
-                                    <th>Bus & Lampiran</th>
-                                    <th>Terminal</th>
-                                    <th>Jam</th>
-                                    <th width="10%" class="text-center">Aksi</th>
+                                    <th>Jenis / Tgl / Jam</th>
+                                    <th>Maskapai, PNR & Terminal</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($activePersonal as $t): ?>
                                 <tr>
+                                    <td class="text-center" style="vertical-align: middle;">
+                                        <a href="<?= base_url('registrasi-tiket/edit/' . $t->id) ?>" class="btn btn-warning btn-sm btn-block shadow-sm font-weight-bold mb-2 py-2">
+                                            <i class="fas fa-edit mr-1"></i> EDIT DATA
+                                        </a>
+                                        <form action="<?= base_url('registrasi-tiket/delete/' . $t->id) ?>" method="post" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin membatalkan/menghapus tiket penerbangan ini?');">
+                                            <?= csrf_field() ?>
+                                            <button type="submit" class="btn btn-xs btn-link text-danger p-0" title="Hapus Tiket">
+                                                <i class="fas fa-trash"></i> Batal/Hapus
+                                            </button>
+                                        </form>
+                                    </td>
                                     <td>
                                         <strong><?= esc($t->nama) ?></strong><br>
-                                        <small class="text-muted"><?= esc($t->daerah_asal) ?></small>
+                                        <small class="text-muted d-block mb-1"><?= esc($t->daerah_asal) ?></small>
+                                        <div class="d-flex flex-wrap" style="gap: 2px;">
+                                            <?php if(isset($t->status_transfer) && $t->status_transfer == 'diverifikasi'): ?>
+                                                <span class="badge badge-success" style="font-size: 0.65rem;"><i class="fas fa-check-double"></i> Lunas Bus</span>
+                                            <?php elseif(isset($t->status_transfer) && $t->status_transfer == 'sudah' && isset($t->bukti_transfer) && $t->bukti_transfer): ?>
+                                                <span class="badge badge-warning text-white" style="font-size: 0.65rem;"><i class="fas fa-hourglass-half"></i> Tunggu Verifikasi</span>
+                                            <?php else: ?>
+                                                <span class="badge badge-secondary" style="font-size: 0.65rem;"><i class="fas fa-times-circle"></i> Belum Bayar Bus</span>
+                                            <?php endif; ?>
+                                            
+                                            <?php if(isset($t->bukti_tiket) && $t->bukti_tiket): ?>
+                                                <a href="<?= base_url('uploads/tiket/' . $t->bukti_tiket) ?>" target="_blank" class="badge badge-primary" style="font-size: 0.65rem;"><i class="fas fa-ticket-alt"></i> E-Ticket</a>
+                                            <?php else: ?>
+                                                <span class="badge badge-danger" style="font-size: 0.65rem;"><i class="fas fa-times"></i> Tiket (-)</span>
+                                            <?php endif; ?>
+                                        </div>
                                     </td>
                                     <td>
                                         <?php if ($t->jenis === 'kepulangan'): ?>
@@ -271,6 +294,7 @@ function getAirlineLink($maskapai, $urls) {
                                             <span class="badge badge-success"><i class="fas fa-plane-arrival mr-1"></i> DATANG</span>
                                         <?php endif; ?>
                                         <br><small class="text-muted font-weight-bold"><?= date('d M Y', strtotime($t->tanggal_pelaksanaan)) ?></small>
+                                        <div class="mt-1"><span class="badge badge-light border"><i class="far fa-clock"></i> <?= date('H:i', strtotime($t->waktu_penerbangan)) ?> WIB</span></div>
                                     </td>
                                     <td>
                                         <?php if($t->bandara_asal && $t->bandara_tujuan): ?>
@@ -281,35 +305,7 @@ function getAirlineLink($maskapai, $urls) {
                                         <?php endif; ?>
                                         <span><?= esc($t->maskapai) ?></span><br>
                                         <span class="badge badge-info"><i class="fas fa-barcode mr-1"></i> <?= esc($t->kode_booking) ?: '-' ?></span>
-                                    </td>
-                                    <td>
-                                        <?php if(isset($t->status_transfer) && $t->status_transfer == 'diverifikasi'): ?>
-                                            <span class="badge badge-success mb-1"><i class="fas fa-check-double"></i> Pembayaran Lunas</span>
-                                        <?php elseif(isset($t->status_transfer) && $t->status_transfer == 'sudah' && isset($t->bukti_transfer) && $t->bukti_transfer): ?>
-                                            <span class="badge badge-warning mb-1 text-white"><i class="fas fa-hourglass-half"></i> Menunggu Verifikasi</span>
-                                        <?php else: ?>
-                                            <span class="badge badge-secondary mb-1"><i class="fas fa-times-circle"></i> Belum Bayar Bus</span>
-                                        <?php endif; ?>
-                                        <div class="mt-1">
-                                        <?php if(isset($t->bukti_tiket) && $t->bukti_tiket): ?>
-                                            <a href="<?= base_url('uploads/tiket/' . $t->bukti_tiket) ?>" target="_blank" class="badge badge-primary"><i class="fas fa-ticket-alt"></i> E-Ticket</a>
-                                        <?php else: ?>
-                                            <span class="badge badge-danger"><i class="fas fa-times"></i> Tiket (-)</span>
-                                        <?php endif; ?>
-                                        </div>
-                                    </td>
-                                    <td class="text-center font-weight-bold">T-<?= esc($t->terminal_bandara) ?></td>
-                                    <td><?= date('H:i', strtotime($t->waktu_penerbangan)) ?> WIB</td>
-                                    <td class="text-center">
-                                        <a href="<?= base_url('registrasi-tiket/edit/' . $t->id) ?>" class="btn btn-warning btn-xs mb-1" title="Edit Tiket">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <form action="<?= base_url('registrasi-tiket/delete/' . $t->id) ?>" method="post" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin membatalkan/menghapus tiket penerbangan ini?');">
-                                            <?= csrf_field() ?>
-                                            <button type="submit" class="btn btn-danger btn-xs mb-1" title="Hapus Tiket">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </form>
+                                        <span class="badge badge-dark"><i class="fas fa-building mr-1"></i> T-<?= esc($t->terminal_bandara) ?></span>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
