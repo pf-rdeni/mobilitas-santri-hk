@@ -37,14 +37,14 @@
 
 <!-- Tabs -->
 <ul class="nav nav-tabs mb-0" id="orangtuaTabs">
+    <?php if ($pendingCount > 0): ?>
     <li class="nav-item">
         <a class="nav-link <?= $pendingCount > 0 ? 'active font-weight-bold' : '' ?>" href="#tab-pending" data-toggle="tab">
             <i class="fas fa-hourglass-half text-warning mr-1"></i> Menunggu Aktivasi
-            <?php if ($pendingCount > 0): ?>
-                <span class="badge badge-warning ml-1"><?= $pendingCount ?></span>
-            <?php endif; ?>
+            <span class="badge badge-warning ml-1"><?= $pendingCount ?></span>
         </a>
     </li>
+    <?php endif; ?>
     <li class="nav-item">
         <a class="nav-link <?= $pendingCount == 0 ? 'active font-weight-bold' : '' ?>" href="#tab-aktif" data-toggle="tab">
             <i class="fas fa-check-circle text-success mr-1"></i> Akun Aktif
@@ -57,14 +57,9 @@
     <div class="card-body p-0">
         <div class="tab-content">
 
+            <?php if ($pendingCount > 0): ?>
             <!-- TAB: Menunggu Aktivasi -->
-            <div class="tab-pane fade <?= $pendingCount > 0 ? 'show active' : '' ?>" id="tab-pending">
-                <?php if (empty($pending)): ?>
-                    <div class="p-4 text-center text-muted">
-                        <i class="fas fa-check-circle fa-2x text-success mb-2 d-block"></i>
-                        Tidak ada akun yang menunggu aktivasi.
-                    </div>
-                <?php else: ?>
+            <div class="tab-pane fade show active" id="tab-pending">
                 <div class="table-responsive">
                     <table id="tabelPending" class="table table-bordered table-hover mb-0">
                         <thead class="bg-warning-light">
@@ -82,7 +77,7 @@
                                 <td class="align-middle">
                                     <strong class="text-dark d-block"><?= esc($user->fullname ?? 'Tanpa Nama') ?></strong>
                                     <small class="text-muted"><i class="fas fa-phone-alt mr-1"></i><?= esc($user->username) ?></small>
-                                    <span class="badge badge-warning ml-1" style="font-size:0.65rem;"><i class="fas fa-clock"></i> Mandiri</span>
+                                    <span class="badge badge-warning ml-1" style="font-size:0.65rem;"><i class="fas fa-history"></i> <?= esc($user->status_message ?? 'Mandiri') ?></span>
                                 </td>
                                 <td class="align-middle small text-muted">
                                     <?= date('d/m/Y H:i', strtotime($user->created_at)) ?>

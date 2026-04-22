@@ -65,9 +65,10 @@ class RegisterOrangtuaController extends BaseController
         $user = new User([
             'fullname' => $this->request->getPost('fullname'),
             'username' => $this->request->getPost('username'),
-            'email'    => $this->request->getPost('username') . '@mobilitas.santri.hk',
-            'password' => $this->request->getPost('password'), // User entity auto-hash via setPassword()
-            'active'   => 0, // Menunggu aktivasi admin
+            'email'          => $this->request->getPost('username') . '@mobilitas.santri.hk',
+            'password'       => $this->request->getPost('password'),
+            'active'         => 0,
+            'status_message' => 'Registrasi Mandiri',
         ]);
 
         // skipValidation(true) agar validasi 'email required' dari UserModel dilewati
